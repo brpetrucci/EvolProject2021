@@ -1,0 +1,85 @@
+#NEXUS
+[Data written by write.nexus.data.R, Mon Feb 22 11:08:43 2021]
+BEGIN DATA;
+  DIMENSIONS NTAX=76 NCHAR=1;
+  FORMAT DATATYPE=DNA MISSING=? GAP=- INTERLEAVE=NO;
+  MATRIX
+    Aelurodon_asthenostylus          3.094753929
+    Aelurodon_ferox                  3.232584141
+    Aelurodon_mcgrewi                3.125394573
+    Aelurodon_stirtoni               2.985438332
+    Archaeocyon_leptodus             1.321331473
+    Archaeocyon_pavidus              0.827825319
+    Borophagus_diversidens           3.522415455
+    Borophagus_hilli                 3.345450717
+    Borophagus_orc                   2.845270091
+    Borophagus_parvus                2.984732457
+    Borophagus_pugnator              3.222040386
+    Borophagus_secundus              3.167526362
+    Canis_armbrusteri                3.375477751
+    Canis_dirus                      3.602740136
+    Canis_edwardii                   3.017275374
+    Canis_ferox                      2.633362196
+    Canis_lepophagus                 2.664819882
+    Canis_thooides                   2.459146656
+    Carpocyon_compressus             2.768771124
+    Carpocyon_robustus               2.966355324
+    Carpocyon_webbi                  3.019290376
+    Cormocyon_copei                  1.582927722
+    Cormocyon_haydeni                1.408664869
+    Cynarctoides_lemur               0.815000076
+    Cynarctoides_luskensis           0.864029227
+    Cynarctus_crucidens              1.612665372
+    Cynarctus_galushai               2.183612128
+    Cynarctus_saxatilis              2.279677349
+    Cynarctus_voorhiesi              1.983500698
+    Cynodesmus_thooides              2.175197347
+    Desmocyon_matthewi               2.09906635
+    Desmocyon_thomsoni               1.920462913
+    Ectopocynus_antiquus             2.057576961
+    Ectopocynus_intermedius          2.526589224
+    Enhydrocyon_basilatus            2.92940034
+    Enhydrocyon_crassidens           2.808017568
+    Enhydrocyon_stenocephalus        2.67196842
+    Epicyon_haydeni                  3.745823172
+    Epicyon_saevus                   3.338273385
+    Eucyon_davisi                    2.344303065
+    Hesperocyon_coloradensis         1.374256457
+    Hesperocyon_gregarius            1.188250904
+    Leptocyon_gregorii               1.533493325
+    Leptocyon_leidyi                 1.580849147
+    Leptocyon_vafer                  1.635543431
+    Leptocyon_vulpinus               1.570588881
+    Mesocyon_coryphaeus              2.185036549
+    Mesocyon_temnodon                1.89737966
+    Metalopex_macconnelli            1.713289035
+    Metalopex_merriami               2.243060703
+    Metatomarctus_canavus            2.361852576
+    Microtomarctus_conferta          2.144863434
+    Osbornodon_brachypus             2.42996462
+    Osbornodon_fricki                3.20188223
+    Osbornodon_iamonensis            2.512445686
+    Osbornodon_renjiei               1.72140627
+    Osbornodon_sesnoni               2.007765634
+    Otarocyon_cooki                  0.618572489
+    Otarocyon_macdonaldi             0.493827217
+    Paraenhydrocyon_josephi          1.869419472
+    Paraenhydrocyon_wallovianus      2.41947864
+    Paratomarctus_euthos             2.650518511
+    Paratomarctus_temerarius         2.467866281
+    Philotrox_condoni                2.496595557
+    Phlaocyon_annectens              1.276126108
+    Phlaocyon_latidens               1.07502911
+    Phlaocyon_leucosteus             1.379426529
+    Phlaocyon_minor                  1.18883174
+    Prohesperocyon_wilsoni           1.161261298
+    Tomarctus_brevirostris           2.85552806
+    Tomarctus_hippophaga             2.619398038
+    Vulpes_stenognathus              2.113007398
+    Canis_latrans                    2.748083158
+    Canis_lupus                      3.249730984
+    Cuon_javanicus                   2.730767817
+    Urocyon_cinereoargenteus         1.779138814
+  ;
+END;
+

@@ -1,0 +1,165 @@
+#NEXUS
+[R-package APE, Mon Feb 22 11:08:43 2021]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 76;
+	TAXLABELS
+		Prohesperocyon_wilsoni
+		Hesperocyon_gregarius
+		Hesperocyon_coloradensis
+		Mesocyon_temnodon
+		Mesocyon_coryphaeus
+		Cynodesmus_thooides
+		Philotrox_condoni
+		Enhydrocyon_crassidens
+		Enhydrocyon_stenocephalus
+		Enhydrocyon_basilatus
+		Osbornodon_renjiei
+		Osbornodon_sesnoni
+		Osbornodon_iamonensis
+		Osbornodon_brachypus
+		Osbornodon_fricki
+		Paraenhydrocyon_josephi
+		Paraenhydrocyon_wallovianus
+		Ectopocynus_antiquus
+		Ectopocynus_intermedius
+		Archaeocyon_pavidus
+		Archaeocyon_leptodus
+		Otarocyon_macdonaldi
+		Otarocyon_cooki
+		Cynarctoides_lemur
+		Cynarctoides_luskensis
+		Phlaocyon_minor
+		Phlaocyon_latidens
+		Phlaocyon_annectens
+		Phlaocyon_leucosteus
+		Cormocyon_haydeni
+		Cormocyon_copei
+		Desmocyon_thomsoni
+		Desmocyon_matthewi
+		Cynarctus_galushai
+		Cynarctus_saxatilis
+		Cynarctus_voorhiesi
+		Cynarctus_crucidens
+		Metatomarctus_canavus
+		Microtomarctus_conferta
+		Tomarctus_hippophaga
+		Tomarctus_brevirostris
+		Aelurodon_asthenostylus
+		Aelurodon_mcgrewi
+		Aelurodon_stirtoni
+		Aelurodon_ferox
+		Paratomarctus_temerarius
+		Paratomarctus_euthos
+		Carpocyon_compressus
+		Carpocyon_webbi
+		Carpocyon_robustus
+		Epicyon_saevus
+		Epicyon_haydeni
+		Borophagus_pugnator
+		Borophagus_orc
+		Borophagus_parvus
+		Borophagus_secundus
+		Borophagus_hilli
+		Borophagus_diversidens
+		Leptocyon_vulpinus
+		Leptocyon_gregorii
+		Leptocyon_leidyi
+		Leptocyon_vafer
+		Vulpes_stenognathus
+		Metalopex_macconnelli
+		Metalopex_merriami
+		Urocyon_cinereoargenteus
+		Eucyon_davisi
+		Canis_ferox
+		Canis_thooides
+		Canis_lepophagus
+		Canis_edwardii
+		Canis_latrans
+		Canis_armbrusteri
+		Canis_dirus
+		Canis_lupus
+		Cuon_javanicus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Prohesperocyon_wilsoni,
+		2	Hesperocyon_gregarius,
+		3	Hesperocyon_coloradensis,
+		4	Mesocyon_temnodon,
+		5	Mesocyon_coryphaeus,
+		6	Cynodesmus_thooides,
+		7	Philotrox_condoni,
+		8	Enhydrocyon_crassidens,
+		9	Enhydrocyon_stenocephalus,
+		10	Enhydrocyon_basilatus,
+		11	Osbornodon_renjiei,
+		12	Osbornodon_sesnoni,
+		13	Osbornodon_iamonensis,
+		14	Osbornodon_brachypus,
+		15	Osbornodon_fricki,
+		16	Paraenhydrocyon_josephi,
+		17	Paraenhydrocyon_wallovianus,
+		18	Ectopocynus_antiquus,
+		19	Ectopocynus_intermedius,
+		20	Archaeocyon_pavidus,
+		21	Archaeocyon_leptodus,
+		22	Otarocyon_macdonaldi,
+		23	Otarocyon_cooki,
+		24	Cynarctoides_lemur,
+		25	Cynarctoides_luskensis,
+		26	Phlaocyon_minor,
+		27	Phlaocyon_latidens,
+		28	Phlaocyon_annectens,
+		29	Phlaocyon_leucosteus,
+		30	Cormocyon_haydeni,
+		31	Cormocyon_copei,
+		32	Desmocyon_thomsoni,
+		33	Desmocyon_matthewi,
+		34	Cynarctus_galushai,
+		35	Cynarctus_saxatilis,
+		36	Cynarctus_voorhiesi,
+		37	Cynarctus_crucidens,
+		38	Metatomarctus_canavus,
+		39	Microtomarctus_conferta,
+		40	Tomarctus_hippophaga,
+		41	Tomarctus_brevirostris,
+		42	Aelurodon_asthenostylus,
+		43	Aelurodon_mcgrewi,
+		44	Aelurodon_stirtoni,
+		45	Aelurodon_ferox,
+		46	Paratomarctus_temerarius,
+		47	Paratomarctus_euthos,
+		48	Carpocyon_compressus,
+		49	Carpocyon_webbi,
+		50	Carpocyon_robustus,
+		51	Epicyon_saevus,
+		52	Epicyon_haydeni,
+		53	Borophagus_pugnator,
+		54	Borophagus_orc,
+		55	Borophagus_parvus,
+		56	Borophagus_secundus,
+		57	Borophagus_hilli,
+		58	Borophagus_diversidens,
+		59	Leptocyon_vulpinus,
+		60	Leptocyon_gregorii,
+		61	Leptocyon_leidyi,
+		62	Leptocyon_vafer,
+		63	Vulpes_stenognathus,
+		64	Metalopex_macconnelli,
+		65	Metalopex_merriami,
+		66	Urocyon_cinereoargenteus,
+		67	Eucyon_davisi,
+		68	Canis_ferox,
+		69	Canis_thooides,
+		70	Canis_lepophagus,
+		71	Canis_edwardii,
+		72	Canis_latrans,
+		73	Canis_armbrusteri,
+		74	Canis_dirus,
+		75	Canis_lupus,
+		76	Cuon_javanicus
+	;
+	TREE UNTITLED = [&U] ((1:3.013237335,(59:6.378545905,60:3.808545905,(61:7.813058644,(62:8.680997143,(63:8.239865565,(67:3.653193475,((68:1.512708501,(69:0.9440453634,70:0.9440453634):2.268663138):1.024093408,((76:4.639869883,((73:1.633177331,74:1.921177331):1.292301608,75:3.225478939):1.414390944):0.6764804103,(71:2.834460459,72:3.134460459):2.181889834):0.7204516159):2.516391565):4.58667209):5.841131578,(64:2.856248414,(65:1.648352274,66:9.648352274):1.20789614):8.124748729):2.432061501):5.39548726):10.10469143):3.843157591,((2:5.904269603,3:3.404269603):2.421868356,(4:17.38640718,(5:9.632208678,6:3.762208678):7.754198506,(7:6.462206496,((8:3.940099193,(9:2.406897031,10:2.406897031):1.533202162):4.142802777,(18:1.858986256,19:1.858986256):6.223915714):4.249304525):5.054200688,(11:3.625789173,(12:1.233270295,(13:9.833999816,(14:5.594222116,15:7.964222116):4.239777699):6.229270479):2.392518878):3.390618011,(16:6.081477139,17:6.081477139):11.30493005):1.309730775):1.630256967,(20:7.600315363,21:7.600315363):6.856079563,((22:0.5397628756,23:7.539762876):4.130019886,24:17.53978276,25:17.53978276,26:21.99978276,(27:10.03343672,(28:7.157628542,29:11.61762854):2.875808179):7.506346041,((30:5.122774324,31:5.122774324):7.162101246,(32:13.91056604,(33:12.41273006,(34:8.274419127,(35:1.28517453,(36:1.885738418,37:1.885738418):2.699436112):6.989244597):6.508310929,((38:2.1433948,39:4.5133948):7.739317911,(40:1.644214994,41:1.644214994):10.60849772,(42:3.983371786,((43:1.795943857,44:1.795943857):1.626420717,45:3.422364574):0.5610072115):8.269340925,((46:1.516668036,47:4.816668036):3.411570532,((48:1.026025175,(49:2.474991172,50:2.474991172):1.851034003):2.112323477,((51:2.51771695,52:3.18571695):5.528315346,((53:2.686351251,54:3.118351251):2.298311564,(55:3.638902434,(56:1.977460392,(57:2.055693061,58:3.855693061):1.221767331):1.661442042):1.777760381):3.72936948):2.692316355):1.789889917):7.324474143):2.530017345):1.497835988):2.834309526):5.254907192):2.786612164);
+END;

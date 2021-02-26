@@ -1,0 +1,78 @@
+Atelocynus microtis	Recent	S America
+Canis antonii	E Pleistocene	Asia (China)
+Canis armbrusteri	E–L Pleistocene	N America
+Canis arnensis	E Pleistocene	Europe
+Canis aureus	E Pleistocene–Recent	Africa–S Eurasia
+Canis chihliensis	L Pliocene–E Pleistocene	Asia (China)
+Canis dirus	L Pleistocene	N America–S America
+Canis edwardii	L Pliocene–L Pleistocene	N America
+Canis etruscus	E Pleistocene	Europe
+Canis falconeri	E Pleistocene	Europe
+Canis ferox	L Miocene–L Pliocene	N America
+Canis gezi	E–M Pleistocene	S America
+Canis latrans	E Pleistocene–Recent	N America
+Canis lepophagus	E Pliocene–E Pleistocene	N America
+Canis lupus	M Pleistocene–Recent	Eurasia–N America
+Canis mosbachensis	M Pleistocene	Europe
+Canis palmidens	L Pliocene–E Pleistocene	C–E Asia
+Canis rufus	L Pleistocene–Recent	N America
+Canis simensis	Recent	Africa (Ethiopia)
+Canis thooides	L Pliocene–E Pleistocene	N America
+Canis variabilis	M Pleistocene	Asia
+Cerdocyon thous	Pleistocene–Recent	S America
+Chrysocyon brachyurus	Pleistocene–Recent	S America
+Cuon alpinus	E Pleistocene–Recent	SE Asia
+Cuon javanicus	E–L Pleistocene	Asia
+Cynotherium sardous	M–L Pleistocene	S Europe
+Dusicyon australis	L Pliocene–Recent	S America
+Eucyon davisi	L Miocene–E Pliocene	N America–C Asia
+Eucyon marinae	L Pliocene	C Asia
+Eucyon zhoui	E–M Pliocene	C Asia
+Leptocyon douglassi	E Oligocene	N America
+Leptocyon gregorii	L Oligocene–E Miocene	N America
+Leptocyon leidyi	E–M Miocene	N America
+Leptocyon matthewi	M–L Miocene	N America
+Leptocyon mollis	E Oligocene	N America
+Leptocyon vafer	M Miocene–L Miocene	N America
+Leptocyon vulpinus	L Oligocene–E Miocene	N America
+Lupulella adusta	E Pleistocene–Recent	Africa
+Lupulella mesomelas	E Pleistocene–Recent	Africa
+Lycalopex culpaeus	Pleistocene–Recent	S America
+Lycalopex fulvipes	Recent	S America
+Lycalopex griseus	Recent	S America
+Lycalopex gymnocercus	Recent	S America
+Lycalopex sechurae	Recent	S America
+Lycalopex vetulus	Recent	S America
+Lycaon pictus	L Pleistocene–Recent	Africa
+Metalopex macconnelli	L Miocene	N America
+Metalopex merriami	L Miocene	N America
+Nurocyon chonokhariensis	E Pliocene	C Asia
+Nyctereutes lockwoodi	M Pliocene	Africa (Ethiopia)
+Nyctereutes procyonoides	M Pleistocene–Recent	Eurasia
+Otocyon megalotis	L Pliocene–Recent	Africa
+Protocyon scagliarum	E–M Pleistocene	S America
+Protocyon troglodytes	M–L Pleistocene	S America
+Speothos pacivorus	E–L Pleistocene	S America
+Speothos venaticus	Pleistocene–Recent	S America
+Theriodictis platensis	E–M Pleistocene	S America
+Urocyon cinereoargenteus	E Pleistocene–Recent	N America
+Urocyon citrinus	E–M Pleistocene	N America
+Urocyon galushai	E Pliocene – E Pleistocene	N America
+Urocyon littoralis	L Pleistocene–Recent	N America
+Urocyon minicephalus	L Pleistocene	N America
+Urocyon webbi	L Miocene	N America
+Vulpes bengalensis	Recent	S Asia
+Vulpes cana	Recent	SW Asia
+Vulpes chama	L Pliocene–Recent	S Africa
+Vulpes corsac	E Pleistocene–Recent	Asia
+Vulpes ferrilata	Recent	Asia (Tibet)
+Vulpes hassani	L Pliocene–E Pleistocene	N Africa
+Vulpes lagopus	L Pleistocene–Recent	N Eurasia–N America
+Vulpes macrotis	Recent	N America
+Vulpes pallida	Recent	Africa (Sahel)
+Vulpes rueppellii	Recent	N Africa–SW Asia
+Vulpes stenognathus	L Miocene–E Pliocene	N America
+Vulpes velox	Pliocene–Recent	N America
+Vulpes vulpes	M Pleistocene–Recent	Eurasia‐N America‐N Africa
+Vulpes zerda	L Pleistocene–Recent	N Africa
+Xenocyon lycaonoides	L Pliocene–L Pleistocene	Eurasia–N America–Africa

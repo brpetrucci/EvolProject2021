@@ -1,0 +1,264 @@
+#NEXUS
+
+[ID: 4478886853]
+begin taxa;
+	dimensions ntax=122;
+	taxlabels
+		outgroup
+		Prohesperocyon_wilsoni
+		Hesperocyon_gregarius
+		Hesperocyon_coloradensis
+		Mesocyon_temnodon
+		Mesocyon_brachyops
+		Mesocyon_coryphaeus
+		Cynodesmus_thooides
+		Cynodesmus_martini
+		Sunkahetanka_geringennsis
+		Philotrox_condoni
+		Enhydrocyon_pahinsintewapka
+		Enhydrocyon_crassidens
+		Enhydrocyon_stenocephalus
+		Enhydrocyon_basilatus
+		Osbornodon_renjiei
+		Osbornodon_sesnoni
+		Osbornodon_iamonensis
+		Osbornodon_brachypus
+		Osbornodon_fricki
+		Paraenhydrocyon_josephi
+		Paraenhydrocyon_robustus
+		Paraenhydrocyon_wallovianus
+		Caedocyon_tedfordi
+		Ectopocynus_antiquus
+		Ectopocynus_intermedius
+		Ectopocynus_simplicdens
+		Archaeocyon_pavidus
+		Archaeocyon_leptodus
+		Archaeocyon_falkenbachi
+		Oxetocyon_cuspidatus
+		Otarocyon_macdonaldi
+		Otarocyon_cooki
+		Rhizocyon_oregonensis
+		Cynarctoides_lemur
+		Cynarctoides_roii
+		Cynarctoides_harlowi
+		Cynarctoides_luskensis
+		Cynarctoides_gawnae
+		Cynarctoides_acridens
+		Cynarctoides_emryi
+		Phlaocyon_minor
+		Phlaocyon_latidens
+		Phlaocyon_annectens
+		Phlaocyon_achoros
+		Phlaocyon_multicuspus
+		Phlaocyon_marslandensis
+		Phlaocyon_leucosteus
+		Phlaocyon_yatkolai
+		Phlaocyon_mariae
+		Cormocyon_haydeni
+		Cormocyon_copei
+		Desmocyon_thomsoni
+		Desmocyon_matthewi
+		Paracynarctus_kellogi
+		Paracynarctus_sinclairi
+		Cynarctus_galushai
+		Cynarctus_marylandica
+		Cynarctus_saxatilis
+		Cynarctus_voorhiesi
+		Cynarctus_crucidens
+		Metatomarctus_canavus
+		Euoplocyon_spissidens
+		Euplocyon_brachygnathus
+		Psalidocyon_mariane
+		Microtomarctus_conferta
+		Protomarctus_optatus
+		Tephrocyon_rurestris
+		Tomarctus_hippophaga
+		Tomarctus_brevirostris
+		Aelurodon_asthenostylus
+		Aelurodon_mcgrewi
+		Aelurodon_stirtoni
+		Aelurodon_ferox
+		Aeleurodon_taxoides
+		Paratomarctus_temerarius
+		Paratomarctus_euthos
+		Carpocyon_compressus
+		Carpocyon_webbi
+		Carpocyon_robustus
+		Carpocyon_limosus
+		Proepicyon_raki
+		Epicyon_aelurodontoides
+		Epicyon_saevus
+		Epicyon_haydeni
+		Borophagus_littoralis
+		Borophagus_pugnator
+		Borophagus_orc
+		Borophagus_parvus
+		Borophagus_secundus
+		Borophagus_hilli
+		Borophagus_dudleyi
+		Borophagus_diversidens
+		Leptocyon_mollis
+		Leptocyon_douglassi
+		Leptocyon_vulpinus
+		Leptocyon_gregorii
+		Leptocyon_leidyi
+		Leptocyon_vafer
+		Leptocyon_matthewi
+		Vulpes_stenognathus
+		Metalopex_macconnelli
+		Metalopex_merriami
+		Urocyon_webbi
+		Urocyon_galushai
+		Urocyon_citrinus
+		Urocyon_minicephalus
+		Urocyon_cinereoargenteus
+		Cerdocyonina
+		Eucyon_davisi
+		Canis_ferox
+		Canis_thooides
+		Canis_lepophagus
+		Canis_falconeri
+		Canis_edwardii
+		Canis_latrans
+		Canis_armbrusteri
+		Canis_dirus
+		Canis_lupus
+		Xenocyon_lycaonoides
+		Cuon_javanicus
+		Lycaon_pictus
+		;
+end;
+begin trees;
+	translate
+		1	outgroup,
+		2	Prohesperocyon_wilsoni,
+		3	Hesperocyon_gregarius,
+		4	Hesperocyon_coloradensis,
+		5	Mesocyon_temnodon,
+		6	Mesocyon_brachyops,
+		7	Mesocyon_coryphaeus,
+		8	Cynodesmus_thooides,
+		9	Cynodesmus_martini,
+		10	Sunkahetanka_geringennsis,
+		11	Philotrox_condoni,
+		12	Enhydrocyon_pahinsintewapka,
+		13	Enhydrocyon_crassidens,
+		14	Enhydrocyon_stenocephalus,
+		15	Enhydrocyon_basilatus,
+		16	Osbornodon_renjiei,
+		17	Osbornodon_sesnoni,
+		18	Osbornodon_iamonensis,
+		19	Osbornodon_brachypus,
+		20	Osbornodon_fricki,
+		21	Paraenhydrocyon_josephi,
+		22	Paraenhydrocyon_robustus,
+		23	Paraenhydrocyon_wallovianus,
+		24	Caedocyon_tedfordi,
+		25	Ectopocynus_antiquus,
+		26	Ectopocynus_intermedius,
+		27	Ectopocynus_simplicdens,
+		28	Archaeocyon_pavidus,
+		29	Archaeocyon_leptodus,
+		30	Archaeocyon_falkenbachi,
+		31	Oxetocyon_cuspidatus,
+		32	Otarocyon_macdonaldi,
+		33	Otarocyon_cooki,
+		34	Rhizocyon_oregonensis,
+		35	Cynarctoides_lemur,
+		36	Cynarctoides_roii,
+		37	Cynarctoides_harlowi,
+		38	Cynarctoides_luskensis,
+		39	Cynarctoides_gawnae,
+		40	Cynarctoides_acridens,
+		41	Cynarctoides_emryi,
+		42	Phlaocyon_minor,
+		43	Phlaocyon_latidens,
+		44	Phlaocyon_annectens,
+		45	Phlaocyon_achoros,
+		46	Phlaocyon_multicuspus,
+		47	Phlaocyon_marslandensis,
+		48	Phlaocyon_leucosteus,
+		49	Phlaocyon_yatkolai,
+		50	Phlaocyon_mariae,
+		51	Cormocyon_haydeni,
+		52	Cormocyon_copei,
+		53	Desmocyon_thomsoni,
+		54	Desmocyon_matthewi,
+		55	Paracynarctus_kellogi,
+		56	Paracynarctus_sinclairi,
+		57	Cynarctus_galushai,
+		58	Cynarctus_marylandica,
+		59	Cynarctus_saxatilis,
+		60	Cynarctus_voorhiesi,
+		61	Cynarctus_crucidens,
+		62	Metatomarctus_canavus,
+		63	Euoplocyon_spissidens,
+		64	Euplocyon_brachygnathus,
+		65	Psalidocyon_mariane,
+		66	Microtomarctus_conferta,
+		67	Protomarctus_optatus,
+		68	Tephrocyon_rurestris,
+		69	Tomarctus_hippophaga,
+		70	Tomarctus_brevirostris,
+		71	Aelurodon_asthenostylus,
+		72	Aelurodon_mcgrewi,
+		73	Aelurodon_stirtoni,
+		74	Aelurodon_ferox,
+		75	Aeleurodon_taxoides,
+		76	Paratomarctus_temerarius,
+		77	Paratomarctus_euthos,
+		78	Carpocyon_compressus,
+		79	Carpocyon_webbi,
+		80	Carpocyon_robustus,
+		81	Carpocyon_limosus,
+		82	Proepicyon_raki,
+		83	Epicyon_aelurodontoides,
+		84	Epicyon_saevus,
+		85	Epicyon_haydeni,
+		86	Borophagus_littoralis,
+		87	Borophagus_pugnator,
+		88	Borophagus_orc,
+		89	Borophagus_parvus,
+		90	Borophagus_secundus,
+		91	Borophagus_hilli,
+		92	Borophagus_dudleyi,
+		93	Borophagus_diversidens,
+		94	Leptocyon_mollis,
+		95	Leptocyon_douglassi,
+		96	Leptocyon_vulpinus,
+		97	Leptocyon_gregorii,
+		98	Leptocyon_leidyi,
+		99	Leptocyon_vafer,
+		100	Leptocyon_matthewi,
+		101	Vulpes_stenognathus,
+		102	Metalopex_macconnelli,
+		103	Metalopex_merriami,
+		104	Urocyon_webbi,
+		105	Urocyon_galushai,
+		106	Urocyon_citrinus,
+		107	Urocyon_minicephalus,
+		108	Urocyon_cinereoargenteus,
+		109	Cerdocyonina,
+		110	Eucyon_davisi,
+		111	Canis_ferox,
+		112	Canis_thooides,
+		113	Canis_lepophagus,
+		114	Canis_falconeri,
+		115	Canis_edwardii,
+		116	Canis_latrans,
+		117	Canis_armbrusteri,
+		118	Canis_dirus,
+		119	Canis_lupus,
+		120	Xenocyon_lycaonoides,
+		121	Cuon_javanicus,
+		122	Lycaon_pictus
+		;
+   [Note: This tree contains information on the topology, 
+          branch lengths (if present), and the probability
+          of the partition indicated by the branch.]
+   tree con_50_majrule = (1:2.384749e-01,28:4.612916e-02,29:3.971186e-02,30:1.062717e-01,(3:4.371974e-02,4:7.357519e-02,(5:2.053181e-02,(6:1.154471e-01,7:4.742281e-02,8:2.666656e-02,9:1.024175e-01,(10:4.038810e-02,11:1.329698e-01,((12:4.084680e-02,(13:8.050310e-02,(14:4.634115e-02,15:1.374647e-01)0.788:5.338477e-02)0.705:8.466897e-02)0.672:2.047362e-01,((25:7.261634e-02,26:3.303882e-02)0.736:1.168540e-01,27:1.983972e-01)0.676:1.973980e-01)0.923:3.174775e-01,24:1.614679e-01)0.603:1.907695e-01)0.585:7.734400e-02,(16:5.079924e-02,(17:3.566749e-02,(18:3.673746e-02,(19:8.252130e-02,20:1.406587e-01)0.920:8.955154e-02)1.000:2.980595e-01)0.972:1.335513e-01)0.965:9.116677e-02,(21:2.567031e-02,(22:5.804196e-02,23:1.429495e-01)0.724:2.119462e-01)0.632:1.527735e-01)0.997:1.291410e-01)0.975:6.924756e-02,(((31:8.842315e-02,(32:3.225780e-02,33:3.307094e-02)1.000:3.311434e-01)0.996:1.883839e-01,((35:4.373533e-02,36:6.085387e-02,37:3.616151e-02,(38:2.399325e-02,(39:2.946489e-02,(40:2.066774e-02,41:2.214722e-01)1.000:1.895627e-01)0.999:1.265639e-01)0.997:1.284760e-01)0.503:6.398675e-02,(42:3.683870e-02,(43:6.310236e-02,(44:2.733920e-02,(((45:3.011982e-02,46:7.188443e-02)0.994:1.453819e-01,(47:4.459610e-02,48:5.315225e-02)0.969:1.340148e-01)0.559:6.342388e-02,(49:1.169041e-01,50:1.025798e-01)0.903:1.697273e-01)0.947:9.365190e-02)0.981:1.731614e-01)0.965:1.129972e-01)0.730:8.269726e-02)0.587:5.804159e-02,(51:4.481223e-02,(52:2.148154e-02,(53:5.559645e-02,(54:4.832012e-02,(((55:3.096425e-02,56:6.988481e-02)0.996:1.467314e-01,(57:3.358867e-02,(58:8.994984e-02,(59:2.728824e-02,(60:2.614521e-02,61:1.320639e-01)0.979:1.199123e-01)1.000:3.639267e-01)0.604:1.136992e-01)0.581:7.638098e-02)0.997:2.474190e-01,(62:3.657632e-02,(63:4.364000e-02,64:9.274824e-02)1.000:2.050286e-01,65:1.185698e-01,(66:5.754852e-02,(67:1.827271e-02,68:4.728937e-02,(69:2.174324e-02,(70:2.298968e-02,(71:2.419842e-02,(72:2.931291e-02,(73:1.361723e-01,(74:2.319118e-02,75:9.716067e-02)1.000:1.529592e-01)0.728:8.838275e-02)1.000:1.919491e-01)0.999:4.252158e-01)0.959:9.724865e-02)0.941:7.381114e-02,(76:2.133339e-02,77:6.783020e-02,((78:3.017971e-02,79:2.837100e-02,80:5.046544e-02,81:1.388463e-01)0.569:1.090728e-01,(82:2.765308e-02,(83:1.908655e-01,(84:2.331700e-02,85:1.246173e-01)0.917:8.231077e-02,(86:2.410803e-02,(87:2.230247e-02,88:5.784490e-02,(89:3.758767e-02,(90:2.359852e-02,(91:4.835953e-02,(92:2.844270e-02,93:1.763997e-01)0.699:1.341232e-01)0.998:1.746193e-01)0.981:8.562442e-02)0.963:7.467655e-02)0.844:5.935794e-02)0.999:1.815979e-01)0.999:1.511705e-01)0.990:1.401939e-01)0.998:1.691113e-01)0.997:1.114669e-01)0.823:6.767685e-02)0.551:8.821870e-02)0.886:9.337641e-02)0.779:7.489424e-02)0.977:9.984459e-02)0.971:9.788826e-02)0.883:4.713163e-02)0.722:4.283953e-02)0.866:1.061252e-01,34:2.052160e-02)0.942:1.415157e-01,(2:1.525086e-01,(94:2.284617e-02,95:4.301678e-02,(96:1.148024e-01,(97:2.707291e-02,(98:4.310519e-02,(99:9.472100e-02,(100:4.434757e-02,((101:5.100246e-02,(109:8.487878e-02,(110:1.893971e-02,(111:2.619278e-02,(112:1.891496e-02,113:1.907533e-02,((((114:5.346761e-02,(120:4.693464e-02,(121:6.787112e-02,122:4.415040e-02)1.000:4.939608e-01)1.000:2.175814e-01)0.943:1.179536e-01,((117:6.797143e-02,118:6.280120e-02)1.000:2.115869e-01,119:5.302356e-02)0.971:1.270694e-01)0.978:1.552749e-01,116:4.171270e-02)0.747:4.277243e-02,115:4.157382e-02)1.000:2.633643e-01)0.662:3.960591e-02)1.000:1.474064e-01)0.985:6.741526e-02)0.999:1.409729e-01)0.584:1.129156e-01,(102:2.938834e-02,(103:7.769511e-02,(104:2.821783e-02,(105:3.017642e-02,(106:2.840203e-02,(107:4.391855e-02,108:7.159250e-02)0.830:5.798089e-02)0.853:8.426723e-02)0.927:1.358462e-01)0.841:1.256949e-01)0.776:1.141695e-01)1.000:3.478575e-01)0.596:1.112949e-01)0.807:9.933944e-02)0.856:9.577930e-02)0.984:1.314664e-01)0.692:7.973592e-02)0.652:8.868197e-02)1.000:2.888821e-01)0.820:1.438457e-01);
+
+   [Note: This tree contains information only on the topology
+          and branch lengths (median of the posterior probability density).]
+   tree con_50_majrule = (1:2.384749e-01,28:4.612916e-02,29:3.971186e-02,30:1.062717e-01,(3:4.371974e-02,4:7.357519e-02,(5:2.053181e-02,(6:1.154471e-01,7:4.742281e-02,8:2.666656e-02,9:1.024175e-01,(10:4.038810e-02,11:1.329698e-01,((12:4.084680e-02,(13:8.050310e-02,(14:4.634115e-02,15:1.374647e-01):5.338477e-02):8.466897e-02):2.047362e-01,((25:7.261634e-02,26:3.303882e-02):1.168540e-01,27:1.983972e-01):1.973980e-01):3.174775e-01,24:1.614679e-01):1.907695e-01):7.734400e-02,(16:5.079924e-02,(17:3.566749e-02,(18:3.673746e-02,(19:8.252130e-02,20:1.406587e-01):8.955154e-02):2.980595e-01):1.335513e-01):9.116677e-02,(21:2.567031e-02,(22:5.804196e-02,23:1.429495e-01):2.119462e-01):1.527735e-01):1.291410e-01):6.924756e-02,(((31:8.842315e-02,(32:3.225780e-02,33:3.307094e-02):3.311434e-01):1.883839e-01,((35:4.373533e-02,36:6.085387e-02,37:3.616151e-02,(38:2.399325e-02,(39:2.946489e-02,(40:2.066774e-02,41:2.214722e-01):1.895627e-01):1.265639e-01):1.284760e-01):6.398675e-02,(42:3.683870e-02,(43:6.310236e-02,(44:2.733920e-02,(((45:3.011982e-02,46:7.188443e-02):1.453819e-01,(47:4.459610e-02,48:5.315225e-02):1.340148e-01):6.342388e-02,(49:1.169041e-01,50:1.025798e-01):1.697273e-01):9.365190e-02):1.731614e-01):1.129972e-01):8.269726e-02):5.804159e-02,(51:4.481223e-02,(52:2.148154e-02,(53:5.559645e-02,(54:4.832012e-02,(((55:3.096425e-02,56:6.988481e-02):1.467314e-01,(57:3.358867e-02,(58:8.994984e-02,(59:2.728824e-02,(60:2.614521e-02,61:1.320639e-01):1.199123e-01):3.639267e-01):1.136992e-01):7.638098e-02):2.474190e-01,(62:3.657632e-02,(63:4.364000e-02,64:9.274824e-02):2.050286e-01,65:1.185698e-01,(66:5.754852e-02,(67:1.827271e-02,68:4.728937e-02,(69:2.174324e-02,(70:2.298968e-02,(71:2.419842e-02,(72:2.931291e-02,(73:1.361723e-01,(74:2.319118e-02,75:9.716067e-02):1.529592e-01):8.838275e-02):1.919491e-01):4.252158e-01):9.724865e-02):7.381114e-02,(76:2.133339e-02,77:6.783020e-02,((78:3.017971e-02,79:2.837100e-02,80:5.046544e-02,81:1.388463e-01):1.090728e-01,(82:2.765308e-02,(83:1.908655e-01,(84:2.331700e-02,85:1.246173e-01):8.231077e-02,(86:2.410803e-02,(87:2.230247e-02,88:5.784490e-02,(89:3.758767e-02,(90:2.359852e-02,(91:4.835953e-02,(92:2.844270e-02,93:1.763997e-01):1.341232e-01):1.746193e-01):8.562442e-02):7.467655e-02):5.935794e-02):1.815979e-01):1.511705e-01):1.401939e-01):1.691113e-01):1.114669e-01):6.767685e-02):8.821870e-02):9.337641e-02):7.489424e-02):9.984459e-02):9.788826e-02):4.713163e-02):4.283953e-02):1.061252e-01,34:2.052160e-02):1.415157e-01,(2:1.525086e-01,(94:2.284617e-02,95:4.301678e-02,(96:1.148024e-01,(97:2.707291e-02,(98:4.310519e-02,(99:9.472100e-02,(100:4.434757e-02,((101:5.100246e-02,(109:8.487878e-02,(110:1.893971e-02,(111:2.619278e-02,(112:1.891496e-02,113:1.907533e-02,((((114:5.346761e-02,(120:4.693464e-02,(121:6.787112e-02,122:4.415040e-02):4.939608e-01):2.175814e-01):1.179536e-01,((117:6.797143e-02,118:6.280120e-02):2.115869e-01,119:5.302356e-02):1.270694e-01):1.552749e-01,116:4.171270e-02):4.277243e-02,115:4.157382e-02):2.633643e-01):3.960591e-02):1.474064e-01):6.741526e-02):1.409729e-01):1.129156e-01,(102:2.938834e-02,(103:7.769511e-02,(104:2.821783e-02,(105:3.017642e-02,(106:2.840203e-02,(107:4.391855e-02,108:7.159250e-02):5.798089e-02):8.426723e-02):1.358462e-01):1.256949e-01):1.141695e-01):3.478575e-01):1.112949e-01):9.933944e-02):9.577930e-02):1.314664e-01):7.973592e-02):8.868197e-02):2.888821e-01):1.438457e-01);
+end;

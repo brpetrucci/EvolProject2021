@@ -1,0 +1,85 @@
+#NEXUS
+[Data written by write.nexus.data.R, Mon Feb 22 11:08:43 2021]
+BEGIN DATA;
+  DIMENSIONS NTAX=76 NCHAR=1;
+  FORMAT DATATYPE=DNA MISSING=? GAP=- INTERLEAVE=NO;
+  MATRIX
+    Aelurodon_asthenostylus          1
+    Aelurodon_ferox                  1
+    Aelurodon_mcgrewi                1
+    Aelurodon_stirtoni               1
+    Archaeocyon_leptodus             3
+    Archaeocyon_pavidus              3
+    Borophagus_diversidens           1
+    Borophagus_hilli                 1
+    Borophagus_orc                   1
+    Borophagus_parvus                1
+    Borophagus_pugnator              1
+    Borophagus_secundus              1
+    Canis_armbrusteri                1
+    Canis_dirus                      1
+    Canis_edwardii                   2
+    Canis_ferox                      2
+    Canis_lepophagus                 2
+    Canis_thooides                   2
+    Carpocyon_compressus             2
+    Carpocyon_robustus               1
+    Carpocyon_webbi                  1
+    Cormocyon_copei                  3
+    Cormocyon_haydeni                3
+    Cynarctoides_lemur               3
+    Cynarctoides_luskensis           3
+    Cynarctus_crucidens              3
+    Cynarctus_galushai               2
+    Cynarctus_saxatilis              3
+    Cynarctus_voorhiesi              3
+    Cynodesmus_thooides              1
+    Desmocyon_matthewi               2
+    Desmocyon_thomsoni               2
+    Ectopocynus_antiquus             2
+    Ectopocynus_intermedius          1
+    Enhydrocyon_basilatus            1
+    Enhydrocyon_crassidens           1
+    Enhydrocyon_stenocephalus        1
+    Epicyon_haydeni                  1
+    Epicyon_saevus                   1
+    Eucyon_davisi                    3
+    Hesperocyon_coloradensis         2
+    Hesperocyon_gregarius            3
+    Leptocyon_gregorii               2
+    Leptocyon_leidyi                 3
+    Leptocyon_vafer                  2
+    Leptocyon_vulpinus               2
+    Mesocyon_coryphaeus              1
+    Mesocyon_temnodon                2
+    Metalopex_macconnelli            3
+    Metalopex_merriami               3
+    Metatomarctus_canavus            3
+    Microtomarctus_conferta          2
+    Osbornodon_brachypus             2
+    Osbornodon_fricki                1
+    Osbornodon_iamonensis            2
+    Osbornodon_renjiei               3
+    Osbornodon_sesnoni               3
+    Otarocyon_cooki                  3
+    Otarocyon_macdonaldi             2
+    Paraenhydrocyon_josephi          1
+    Paraenhydrocyon_wallovianus      1
+    Paratomarctus_euthos             2
+    Paratomarctus_temerarius         2
+    Philotrox_condoni                1
+    Phlaocyon_annectens              3
+    Phlaocyon_latidens               3
+    Phlaocyon_leucosteus             3
+    Phlaocyon_minor                  3
+    Prohesperocyon_wilsoni           3
+    Tomarctus_brevirostris           1
+    Tomarctus_hippophaga             2
+    Vulpes_stenognathus              3
+    Canis_latrans                    2
+    Canis_lupus                      1
+    Cuon_javanicus                   1
+    Urocyon_cinereoargenteus         3
+  ;
+END;
+

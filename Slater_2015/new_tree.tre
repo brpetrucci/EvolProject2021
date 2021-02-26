@@ -1,0 +1,257 @@
+#NEXUS
+[R-package APE, Mon Feb 22 11:07:18 2021]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 122;
+	TAXLABELS
+		outgroup
+		Prohesperocyon_wilsoni
+		Hesperocyon_gregarius
+		Hesperocyon_coloradensis
+		Mesocyon_temnodon
+		Mesocyon_brachyops
+		Mesocyon_coryphaeus
+		Cynodesmus_thooides
+		Cynodesmus_martini
+		Sunkahetanka_geringennsis
+		Philotrox_condoni
+		Enhydrocyon_pahinsintewapka
+		Enhydrocyon_crassidens
+		Enhydrocyon_stenocephalus
+		Enhydrocyon_basilatus
+		Osbornodon_renjiei
+		Osbornodon_sesnoni
+		Osbornodon_iamonensis
+		Osbornodon_brachypus
+		Osbornodon_fricki
+		Paraenhydrocyon_josephi
+		Paraenhydrocyon_robustus
+		Paraenhydrocyon_wallovianus
+		Caedocyon_tedfordi
+		Ectopocynus_antiquus
+		Ectopocynus_intermedius
+		Ectopocynus_simplicdens
+		Archaeocyon_pavidus
+		Archaeocyon_leptodus
+		Archaeocyon_falkenbachi
+		Oxetocyon_cuspidatus
+		Otarocyon_macdonaldi
+		Otarocyon_cooki
+		Rhizocyon_oregonensis
+		Cynarctoides_lemur
+		Cynarctoides_roii
+		Cynarctoides_harlowi
+		Cynarctoides_luskensis
+		Cynarctoides_gawnae
+		Cynarctoides_acridens
+		Cynarctoides_emryi
+		Phlaocyon_minor
+		Phlaocyon_latidens
+		Phlaocyon_annectens
+		Phlaocyon_achoros
+		Phlaocyon_multicuspus
+		Phlaocyon_marslandensis
+		Phlaocyon_leucosteus
+		Phlaocyon_yatkolai
+		Phlaocyon_mariae
+		Cormocyon_haydeni
+		Cormocyon_copei
+		Desmocyon_thomsoni
+		Desmocyon_matthewi
+		Paracynarctus_kellogi
+		Paracynarctus_sinclairi
+		Cynarctus_galushai
+		Cynarctus_marylandica
+		Cynarctus_saxatilis
+		Cynarctus_voorhiesi
+		Cynarctus_crucidens
+		Metatomarctus_canavus
+		Euoplocyon_spissidens
+		Euplocyon_brachygnathus
+		Psalidocyon_mariane
+		Microtomarctus_conferta
+		Protomarctus_optatus
+		Tephrocyon_rurestris
+		Tomarctus_hippophaga
+		Tomarctus_brevirostris
+		Aelurodon_asthenostylus
+		Aelurodon_mcgrewi
+		Aelurodon_stirtoni
+		Aelurodon_ferox
+		Aeleurodon_taxoides
+		Paratomarctus_temerarius
+		Paratomarctus_euthos
+		Carpocyon_compressus
+		Carpocyon_webbi
+		Carpocyon_robustus
+		Carpocyon_limosus
+		Proepicyon_raki
+		Epicyon_aelurodontoides
+		Epicyon_saevus
+		Epicyon_haydeni
+		Borophagus_littoralis
+		Borophagus_pugnator
+		Borophagus_orc
+		Borophagus_parvus
+		Borophagus_secundus
+		Borophagus_hilli
+		Borophagus_dudleyi
+		Borophagus_diversidens
+		Leptocyon_mollis
+		Leptocyon_douglassi
+		Leptocyon_vulpinus
+		Leptocyon_gregorii
+		Leptocyon_leidyi
+		Leptocyon_vafer
+		Leptocyon_matthewi
+		Vulpes_stenognathus
+		Metalopex_macconnelli
+		Metalopex_merriami
+		Urocyon_webbi
+		Urocyon_galushai
+		Urocyon_citrinus
+		Urocyon_minicephalus
+		Urocyon_cinereoargenteus
+		Cerdocyonina
+		Eucyon_davisi
+		Canis_ferox
+		Canis_thooides
+		Canis_lepophagus
+		Canis_falconeri
+		Canis_edwardii
+		Canis_latrans
+		Canis_armbrusteri
+		Canis_dirus
+		Canis_lupus
+		Xenocyon_lycaonoides
+		Cuon_javanicus
+		Lycaon_pictus
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	outgroup,
+		2	Prohesperocyon_wilsoni,
+		3	Hesperocyon_gregarius,
+		4	Hesperocyon_coloradensis,
+		5	Mesocyon_temnodon,
+		6	Mesocyon_brachyops,
+		7	Mesocyon_coryphaeus,
+		8	Cynodesmus_thooides,
+		9	Cynodesmus_martini,
+		10	Sunkahetanka_geringennsis,
+		11	Philotrox_condoni,
+		12	Enhydrocyon_pahinsintewapka,
+		13	Enhydrocyon_crassidens,
+		14	Enhydrocyon_stenocephalus,
+		15	Enhydrocyon_basilatus,
+		16	Osbornodon_renjiei,
+		17	Osbornodon_sesnoni,
+		18	Osbornodon_iamonensis,
+		19	Osbornodon_brachypus,
+		20	Osbornodon_fricki,
+		21	Paraenhydrocyon_josephi,
+		22	Paraenhydrocyon_robustus,
+		23	Paraenhydrocyon_wallovianus,
+		24	Caedocyon_tedfordi,
+		25	Ectopocynus_antiquus,
+		26	Ectopocynus_intermedius,
+		27	Ectopocynus_simplicdens,
+		28	Archaeocyon_pavidus,
+		29	Archaeocyon_leptodus,
+		30	Archaeocyon_falkenbachi,
+		31	Oxetocyon_cuspidatus,
+		32	Otarocyon_macdonaldi,
+		33	Otarocyon_cooki,
+		34	Rhizocyon_oregonensis,
+		35	Cynarctoides_lemur,
+		36	Cynarctoides_roii,
+		37	Cynarctoides_harlowi,
+		38	Cynarctoides_luskensis,
+		39	Cynarctoides_gawnae,
+		40	Cynarctoides_acridens,
+		41	Cynarctoides_emryi,
+		42	Phlaocyon_minor,
+		43	Phlaocyon_latidens,
+		44	Phlaocyon_annectens,
+		45	Phlaocyon_achoros,
+		46	Phlaocyon_multicuspus,
+		47	Phlaocyon_marslandensis,
+		48	Phlaocyon_leucosteus,
+		49	Phlaocyon_yatkolai,
+		50	Phlaocyon_mariae,
+		51	Cormocyon_haydeni,
+		52	Cormocyon_copei,
+		53	Desmocyon_thomsoni,
+		54	Desmocyon_matthewi,
+		55	Paracynarctus_kellogi,
+		56	Paracynarctus_sinclairi,
+		57	Cynarctus_galushai,
+		58	Cynarctus_marylandica,
+		59	Cynarctus_saxatilis,
+		60	Cynarctus_voorhiesi,
+		61	Cynarctus_crucidens,
+		62	Metatomarctus_canavus,
+		63	Euoplocyon_spissidens,
+		64	Euplocyon_brachygnathus,
+		65	Psalidocyon_mariane,
+		66	Microtomarctus_conferta,
+		67	Protomarctus_optatus,
+		68	Tephrocyon_rurestris,
+		69	Tomarctus_hippophaga,
+		70	Tomarctus_brevirostris,
+		71	Aelurodon_asthenostylus,
+		72	Aelurodon_mcgrewi,
+		73	Aelurodon_stirtoni,
+		74	Aelurodon_ferox,
+		75	Aeleurodon_taxoides,
+		76	Paratomarctus_temerarius,
+		77	Paratomarctus_euthos,
+		78	Carpocyon_compressus,
+		79	Carpocyon_webbi,
+		80	Carpocyon_robustus,
+		81	Carpocyon_limosus,
+		82	Proepicyon_raki,
+		83	Epicyon_aelurodontoides,
+		84	Epicyon_saevus,
+		85	Epicyon_haydeni,
+		86	Borophagus_littoralis,
+		87	Borophagus_pugnator,
+		88	Borophagus_orc,
+		89	Borophagus_parvus,
+		90	Borophagus_secundus,
+		91	Borophagus_hilli,
+		92	Borophagus_dudleyi,
+		93	Borophagus_diversidens,
+		94	Leptocyon_mollis,
+		95	Leptocyon_douglassi,
+		96	Leptocyon_vulpinus,
+		97	Leptocyon_gregorii,
+		98	Leptocyon_leidyi,
+		99	Leptocyon_vafer,
+		100	Leptocyon_matthewi,
+		101	Vulpes_stenognathus,
+		102	Metalopex_macconnelli,
+		103	Metalopex_merriami,
+		104	Urocyon_webbi,
+		105	Urocyon_galushai,
+		106	Urocyon_citrinus,
+		107	Urocyon_minicephalus,
+		108	Urocyon_cinereoargenteus,
+		109	Cerdocyonina,
+		110	Eucyon_davisi,
+		111	Canis_ferox,
+		112	Canis_thooides,
+		113	Canis_lepophagus,
+		114	Canis_falconeri,
+		115	Canis_edwardii,
+		116	Canis_latrans,
+		117	Canis_armbrusteri,
+		118	Canis_dirus,
+		119	Canis_lupus,
+		120	Xenocyon_lycaonoides,
+		121	Cuon_javanicus,
+		122	Lycaon_pictus
+	;
+	TREE UNTITLED = [&R] (1:2.285707871,((2:3.013237335,(94:1.738096763,95:2.738096763,(96:6.378545905,97:3.808545905,(98:7.813058644,(99:8.680997143,(100:5.476387665,(101:8.239865565,(109:11.00041919,(110:3.653193475,((111:1.512708501,(112:0.9440453634,113:0.9440453634):2.268663138):1.024093408,(((114:2.13438638,(120:2.403492699,(121:0.8217704821,122:0.8217704821):1.881722217):0.930893681):1.005483503,((117:1.633177331,118:1.921177331):1.292301608,119:3.225478939):1.414390944):0.6764804103,(115:2.834460459,116:3.134460459):2.181889834):0.7204516159):2.516391565):2.447225719):2.139446372):2.6365221):3.204609477,(102:2.856248414,(103:1.648352274,(104:1.137028467,(105:3.418643002,(106:1.423675413,(107:1.269893681,108:1.509893681):1.713781732):1.694967589):2.218385465):2.511323807):1.20789614):8.124748729):2.432061501):5.39548726):3.929550858):6.175140573):3.843157591,((3:5.904269603,4:3.404269603):2.421868356,(5:17.38640718,((6:5.239716542,7:5.239716542):4.392492136,(8:1.31562583,9:7.18562583):2.446582848):7.754198506,(10:6.462206496,11:6.462206496,((12:5.461245677,(13:3.940099193,(14:2.406897031,15:2.406897031):1.533202162):1.521146483):2.621656294,((25:1.858986256,26:1.858986256):2.224100809,27:8.543087066):3.999814905):4.249304525,24:4.762206496):5.054200688,(16:3.625789173,(17:1.233270295,(18:9.833999816,(19:5.594222116,20:7.964222116):4.239777699):6.229270479):2.392518878):3.390618011,(21:6.081477139,(22:2.071936996,23:2.071936996):4.009540143):11.30493005):1.309730775):1.630256967,(28:7.600315363,29:7.600315363,30:9.900315363):6.856079563,(((31:4.569252396,(32:0.5397628756,33:7.539762876):1.52948952):2.600530366,(35:2.183484637,37:2.183484637):15.35629813,36:11.53978276,(38:6.795766404,(39:9.388043823,(40:5.677428619,41:3.307428619):6.080615204):1.867722581):10.74401636,42:21.99978276,(43:10.03343672,(44:7.157628542,((45:1.681357509,46:1.681357509):3.432387258,(47:2.281926134,48:2.281926134):7.291818634,(49:3.501498675,50:3.501498675):6.072246092):2.043883775):2.875808179):7.506346041,((51:5.122774324,52:5.122774324):7.162101246,(53:13.91056604,(54:12.41273006,((55:2.548265526,56:2.548265526):5.726153601,57:8.274419127,58:8.274419127,(59:1.28517453,(60:1.885738418,61:1.885738418):2.699436112):6.989244597):6.508310929,((62:2.1433948,66:4.5133948):7.739317911,(63:1.424012734,64:5.824012734):6.428699977,65:12.25271271,67:9.552712711,68:12.25271271,(69:1.644214994,70:1.644214994):10.60849772,(71:3.983371786,((72:1.795943857,73:1.795943857):1.626420717,(74:2.613348341,75:5.913348341):0.8090162329):0.5610072115):8.269340925,((76:1.516668036,77:4.816668036):3.411570532,((78:1.026025175,(79:2.474991172,80:2.474991172,81:7.874991172):1.851034003):2.112323477,(82:1.687245598,((83:6.514186959,(84:2.51771695,85:3.18571695):3.996470009):1.531845337,(86:1.537513021,((87:2.686351251,88:3.118351251):2.298311564,(89:3.638902434,(90:1.977460392,(91:2.055693061,92:2.055693061,93:3.855693061):1.221767331):1.661442042):1.777760381):1.520850206):2.208519275):1.241213303):1.451103053):1.789889917):7.324474143):2.530017345):1.497835988):2.834309526):5.254907192):1.106664303,34:11.07644707):1.679947861):1.529312945);
+END;
