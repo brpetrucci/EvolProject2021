@@ -7,6 +7,9 @@
 ### 
 # packages required
 
+# devtools 
+library(devtools)
+
 # paleobuddy
 load_all()
 
@@ -15,6 +18,9 @@ library(ape)
 
 # readr (for write_tsv)
 library(readr)
+
+# rootsolve
+library(rootSolve)
 
 ###
 # simulation pipeline settings:
@@ -48,7 +54,7 @@ nExp <- 200
 
 # minimum and maximum number of species
 nMin <- nExp / 4
-nMax <- nExp * 3
+nMax <- nExp * 2
 
 # interval of accepted species 
 nFinal <- c(nMin, nMax)
@@ -91,19 +97,20 @@ meInt <- 0.75
 meIntChange <- c(0.9, 0.5)
 
 # ME rate
-# such that we expect meInt * number of species before ME to go extinct
-mu_me <- (log(meInt) + lambda_bg * (meDur + meStart) - mu_bg * meStart) / meDur
+# such that we expect meInt * number alive at meStart to be alive
+# at the end of the ME
+mu_me <- lambda_bg - log(1 - meInt) / meDur
 
 # recovery percentage (compared to diversity lost during ME)
-reInt <- 1.25
+reInt <- 1
 
 # variations we want to test
-reIntChange <- c(1.5, 1)
+reIntChange <- c(1.25, 0.9)
 
 # speciation recovery rate
-# such that we expect reInt * number of expected ME species to go extinct
-lambda_re <- (log(reInt) + mu_bg * reDur +  mu_me * meDur
-              - lambda_bg * meDur) / reDur
+# such that we expect reInt * number alive at meStart
+# to be alive at the end of the recovery period
+lambda_re <- (log(reInt) - (lambda_bg - mu_me) * meDur) / reDur + mu_bg
 
 # rates
 
@@ -128,7 +135,8 @@ expTotalNt <- function(t) {
 
 # find tMax such that the expected number of species is nExp
 tMax <- uniroot(function(t) expTotalNt(t) - nExp, 
-                c(meStart + meDur + reDur, meStart + meDur + reDur + 10))$root
+                c(meStart + meDur + reDur, meStart + meDur + reDur + 10),
+                extendInt = "yes")$root
 
 # bins - from the GSA time scale 
 bins <- c(100, 93.9, 89.8, 83.6, 72.1, 66, 61.6, 56, 47.8, 41.2, 
@@ -182,16 +190,13 @@ stQSumChange <- c(0.1, 0.025)
 # transition matrix
 stQ <- matrix(c(0, stQ10, stQ01, 0), 2, 2)
 
-# we need to find a value of l such that
-# l + l * Trait is expected to be lambda_bg
-
 # mean of t given m
 meanLambda <- function(l) {
   exponent <- Vectorize(function(t, l) {
-    integrate(function(x) l + l*expected.trait(stQ01, stQ10, x), 0, t)$value
+    integrate(function(x) l - l/5*expected.trait(stQ01, stQ10, x), 0, t)$value
   })
   
-  integrate(function(t) t * (l + l * expected.trait(stQ01, stQ10, t)) *
+  integrate(function(t) t * (l - l/5 * expected.trait(stQ01, stQ10, t)) *
               exp(-exponent(t, l)), 0, Inf)$value
 }
 
@@ -210,7 +215,7 @@ lambda <- function(t, traits) {
   reEnd <- reStart + reDur
   ifelse((t < reStart) || (t > reEnd),                    
          # BG
-         lambda_bg_0 + lambda_bg_0 * traits[2],
+         lambda_bg_0 - lambda_bg_0/5* traits[2],
          # RE
          lambda_re + lambdaModCont * lambda_re * traits[1])
 }
@@ -219,10 +224,10 @@ lambda <- function(t, traits) {
 # mean of t given m
 meanMu <- function(m) {
   exponent <- Vectorize(function(t, m) {
-    integrate(function(x) m + m*expected.trait(stQ01, stQ10, x), 0, t)$value
+    integrate(function(x) m - m/5*expected.trait(stQ01, stQ10, x), 0, t)$value
   })
   
-  integrate(function(t) t * (m + m * expected.trait(stQ01, stQ10, t)) *
+  integrate(function(t) t * (m - m/5 * expected.trait(stQ01, stQ10, t)) *
               exp(-exponent(t, m)), 0, Inf)$value
 }
 
@@ -241,7 +246,7 @@ mu <- function(t, traits) {
          # BG
          mu_bg + muModCont * mu_bg  * traits[1],
          # ME
-         mu_me_0 + mu_me_0 * traits[2])
+         mu_me_0 - mu_me_0/5 * traits[2])
 }
 # in other words, E[mu] = mu_null
 
@@ -257,7 +262,7 @@ smart.dir.create <- function(dir) {
 }
 
 # get the base directory where everything should be
-baseDir <- "C:/Users/bruno/Documents/RESEARCH/PhD/EvolProject2021/Simulation/"
+baseDir <- "/Users/petrucci/Documents/research/EvolProject2021/simulation/"
 
 # create a directory to hold all simulations
 simDir <- paste0(baseDir, "replicates/")
@@ -397,19 +402,29 @@ simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
       sim <- sim$SIM
     }
     
-    # get fossil samples
-    sample <- data.frame()
-    while (nrow(sample) == 0) {
-      sample <- suppressMessages(sample.clade(sim, rho, tMax, 
-                                              bins = bins, returnAll = TRUE))
+    # sample test
+    sampleBounds <- FALSE
+    
+    # run until in bounds
+    while (!sampleBounds) {
+      # get fossil samples
+      sample <- data.frame()
+      while (nrow(sample) == 0) {
+        sample <- suppressMessages(sample.clade(sim, rho, tMax, 
+                                                bins = bins, returnAll = TRUE))
+      }
+      
+      # number of sampled species
+      nSampled <- length(unique(sample$Species))
+      
+      # get actual min and max fossils given number of sampled species
+      minFossils <- minFossilsSp * nSampled
+      maxFossils <- maxFossilsSp * nSampled
+      
+      # test
+      sampleBounds <- nrow(sample) >= minFossils &&
+        nrow(sample) <= maxFossils
     }
-    
-    # number of sampled species
-    nSampled <- length(unique(sample$Species))
-    
-    # get actual min and max fossils given number of sampled species
-    minFossils <- minFossilsSp * nSampled
-    maxFossils <- maxFossilsSp * nSampled
     
     # make a molecular tree
     tree <- drop.fossil(make.phylo(sim))
@@ -429,9 +444,7 @@ simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
     fbdTree <- collapseFossils(saTree)
     
     # check if null
-    bounds <- (nSampled > minSamp) &&
-      (nrow(sample) < maxFossils) &&
-      (nrow(sample) > minFossils)
+    bounds <- (nSampled > minSamp)
     
     if (!null) {
       # times to sample traits from the saTree taxa
@@ -451,32 +464,35 @@ simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
       # for the tree
       treeTraitsCont <- as.numeric(unlist(lapply(treeTaxa, 
                                                  function(x)
-                                                      traitCont[[paste0("t", x)]](
-                                                        tMax
-                                                      ))))
+                                                  traitCont[[paste0("t", x)]](
+                                                     tMax
+                                                  ))))
+      
       names(treeTraitsCont) <- paste0("t", treeTaxa)
       
       treeTraitsDisc <- as.numeric(unlist(lapply(treeTaxa, 
                                                  function(x)
-                                                   traitDisc[[paste0("t", x)]](
-                                                     tMax
-                                                   ))))
+                                                traitDisc[[paste0("t", x)]](
+                                                  tMax
+                                                ))))
+      
       names(treeTraitsDisc) <- paste0("t", treeTaxa)
       
       # and the saTree
       saTreeTraitsCont <- as.numeric(unlist(lapply(saTreeTaxa,
                                                    function(x)
-                                                traitCont[[paste0("t", floor(x))]](
-                                                 saTreeTraitSampT[[paste0("t", x)]]
-                                                ))))
+                                          traitCont[[paste0("t", floor(x))]](
+                                            saTreeTraitSampT[[paste0("t", x)]]
+                                          ))))
       
       names(saTreeTraitsCont) <- paste0("t", saTreeTaxa)
       
       saTreeTraitsDisc <- as.numeric(unlist(lapply(saTreeTaxa,
                                                    function(x)
-                                                traitCont[[paste0("t", floor(x))]](
-                                                  saTreeTraitSampT[[paste0("t", x)]]
-                                                ))))
+                                          traitDisc[[paste0("t", floor(x))]](
+                                            saTreeTraitSampT[[paste0("t", x)]]
+                                          ))))
+      
       
       names(saTreeTraitsDisc) <- paste0("t", saTreeTaxa)
       
@@ -492,12 +508,10 @@ simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
       sumDisc <- sum(treeTraitsDisc)
       
       # checks if not null
-      bounds <- (nSampled > minSamp) &&
-        (nrow(sample) < maxFossils) &&
-        (nrow(sample) > minFossils) &&
-        (varCont > minVar) &&
-        (sumDisc > 5) &&
-        (sumDisc < (length(saTreeTaxa) - 5))
+      bounds <- (nSampled >= minSamp) &&
+        (varCont >= minVar) &&
+        (sumDisc >= 5) &&
+        (sumDisc <= (length(saTreeTaxa) - 5))
     }
     
     # if counter is higher than 10, maybe rethink the parameters
@@ -533,12 +547,11 @@ simulate <- function(nReps, comb, key) {
   
   meInt <- pars[["meInt"]]
   
-  mu_me <- (log(meInt) + lambda_bg * (meDur + meStart) - mu_bg * meStart) / meDur
+  mu_me <- lambda_bg - log(1 - meInt) / meDur
   
   reInt <- pars[["reInt"]]
   
-  lambda_re <- (log(reInt) + mu_bg * reDur +  mu_me * meDur
-                - lambda_bg * meDur) / reDur
+  lambda_re <- (log(reInt) - (lambda_bg - mu_me) * meDur) / reDur + mu_bg
   
   lambda_null <- stepfun(c(reStart, reStart + reDur),
                          c(lambda_bg, lambda_re, lambda_bg))
@@ -557,7 +570,8 @@ simulate <- function(nReps, comb, key) {
   
   tMax <- uniroot(function(t) expTotalNt(t) - nExp, 
                   c(meStart + meDur + reDur, 
-                    meStart + meDur + reDur + 10))$root
+                    meStart + meDur + reDur + 10),
+                  extendInt = "yes")$root
   
   bmSigma2 <- pars[["bmSigma2"]]
   
@@ -568,15 +582,17 @@ simulate <- function(nReps, comb, key) {
   
   meanLambda <- function(l) {
     exponent <- Vectorize(function(t, l) {
-      integrate(function(x) l + l*expected.trait(stQ01, stQ10, x), 0, t)$value
+      integrate(function(x) l - l/5*
+                  expected.trait(stQ01, stQ10, x), 0, t)$value
     })
     
-    integrate(function(t) t * (l + l * expected.trait(stQ01, stQ10, t)) *
+    integrate(function(t) t * (l - l/5 * expected.trait(stQ01, stQ10, t)) *
                 exp(-exponent(t, l)), 0, Inf)$value
   }
   
   lambda_bg_0 <- uniroot(function(l) meanLambda(l) - 1/lambda_bg, 
-                         interval = c(0.1, 1))$root
+                         interval = c(0.1, 1),
+                         extendInt = "yes")$root
   
   lambdaModCont <- pars[["lambdaModCont"]]
   
@@ -585,22 +601,24 @@ simulate <- function(nReps, comb, key) {
     reEnd <- reStart + reDur
     ifelse((t < reStart) || (t > reEnd),                    
            # BG
-           lambda_bg_0 + lambda_bg_0 * traits[2],
+           lambda_bg_0 - lambda_bg_0/5 * traits[2],
            # RE
            lambda_re + lambdaModCont * lambda_re * traits[1])
   }
   
   meanMu <- function(m) {
     exponent <- Vectorize(function(t, m) {
-      integrate(function(x) m + m*expected.trait(stQ01, stQ10, x), 0, t)$value
+      integrate(function(x) m - m/5*
+                  expected.trait(stQ01, stQ10, x), 0, t)$value
     })
     
-    integrate(function(t) t * (m + m * expected.trait(stQ01, stQ10, t)) *
+    integrate(function(t) t * (m - m/5 * expected.trait(stQ01, stQ10, t)) *
                 exp(-exponent(t, m)), 0, Inf)$value
   }
   
   mu_me_0 <- uniroot(function(m) meanMu(m) - 1/mu_me, 
-                     interval = c(0.1, 1))$root
+                     interval = c(0.1, 1),
+                     extendInt = "yes")$root
   
   muModCont <- 0.05 
   
@@ -609,18 +627,22 @@ simulate <- function(nReps, comb, key) {
            # BG
            mu_bg + muModCont * mu_bg  * traits[1],
            # ME
-           mu_me_0 + mu_me_0 * traits[2])
+           mu_me_0 - mu_me_0/5 * traits[2])
   }
   
   ## create directories
   
   # base directory for simulations with parameter combination comb
-  dir <- paste0(simDir, "comb_", comb, "/")
-  smart.dir.create(dir)
+  combDir <- paste0(simDir, "comb_", comb, "/")
+  smart.dir.create(combDir)
   
   # null directory
-  nullDir <- paste0(dir, "null/")
+  nullDir <- paste0(combDir, "null/")
   smart.dir.create(nullDir)
+  
+  # simulation objects directory (null)
+  nullSimsDir <- paste0(nullDir, "sim/")
+  smart.dir.create(nullSimsDir)
     
   # fossil data frames directory (null)
   nullFossilsDir <- paste0(nullDir, "fossils/")
@@ -631,8 +653,12 @@ simulate <- function(nReps, comb, key) {
   smart.dir.create(nullTreesDir)
   
   # trait sims directory
-  traitsDir <- paste0(dir, "traits/")
+  traitsDir <- paste0(combDir, "traits/")
   smart.dir.create(traitsDir)
+  
+  # simulation objects directory (traits)
+  traitsSimsDir <- paste0(traitsDir, "sim/")
+  smart.dir.create(traitsSimsDir)
   
   # traits lists directory (traits)
   traitListsDir <- paste0(traitsDir, "trait_lists/")
@@ -647,10 +673,8 @@ simulate <- function(nReps, comb, key) {
   smart.dir.create(traitsTreeDir)
   
   ## run simulations
-  # set and save seed
-  seed <- comb * nrow(key)
-  set.seed(seed)
-  write(seed, file = paste0(dir, "seed_", comb, ".txt"))
+  seed <- .Random.seed
+  write.table(seed, file = paste0(combDir, "seed_", comb, ".txt"))
   
   # run null simulations
   simRepsNull <- lapply(1:nReps, function(x) {
@@ -664,6 +688,17 @@ simulate <- function(nReps, comb, key) {
   
   # save simulation RData
   save(simListNull, file = paste0(nullDir, "sim_list.RData"))
+  
+  # print simulations to file
+  invisible(lapply(1:nReps, function(x) 
+    capture.output(print.sim(simListNull[[x]]), 
+                   file = paste0(nullSimsDir, "sim_", x))))
+  invisible(lapply(1:nReps, function(x) 
+    capture.output(lapply(simListNull[[x]], function(x) {
+      cat("\n")
+      x}), 
+                   file = paste0(nullSimsDir, "sim_", x),
+                   append = TRUE)))
   
   # get fossil records
   fossilsListNull <- lapply(1:nReps, function(x) simRepsNull[[x]]$SAMPLE)
@@ -697,7 +732,7 @@ simulate <- function(nReps, comb, key) {
   
   # run trait simulations
   simTraitsReps <- lapply(1:nReps, function(x) {
-    print(paste0("comb: ", comb, " null: ", x))
+    print(paste0("comb: ", comb, " trait: ", x))
     simulate_rep(tMax, lambda, mu, nFinal, rho, bins,
                  bmSigma2, bmX0, stQ, stX0, null = FALSE)
   })
@@ -709,6 +744,17 @@ simulate <- function(nReps, comb, key) {
     
   # save simulation RData
   save(simList, file = paste0(traitsDir, "sim_list.RData"))
+  
+  # print simulations to file
+  invisible(lapply(1:nReps, function(x) 
+    capture.output(print.sim(simList[[x]]), 
+                   file = paste0(traitsSimsDir, "sim_", x))))
+  invisible(lapply(1:nReps, function(x) 
+    capture.output(lapply(simList[[x]], function(x) {
+      cat("\n")
+      x}), 
+      file = paste0(traitsSimsDir, "sim_", x),
+      append = TRUE)))
   
   # and trait RData
   save(bmTraitsFunc, file = paste0(traitsDir, "bm_traits.RData"))
@@ -773,6 +819,14 @@ simulate <- function(nReps, comb, key) {
 }
 
 # run simulations
-invisible(lapply(1:nrow(key),
-                function(x)
-                  simulate(nReps, x, key)))
+nReps <- 1
+begin <- Sys.time()
+invisible(lapply(1:nrow(key), function(x)
+                 simulate(nReps, x, key)))
+end <- Sys.time()
+print(end - begin)
+write(end-begin, file = paste0(baseDir, "time_1rep.txt"))
+
+nReps <- 50
+invisible(lapply(1:nrow(key), function(x)
+  simulate(nReps, x, key)))
