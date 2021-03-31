@@ -102,10 +102,10 @@ meIntChange <- c(0.9, 0.5)
 mu_me <- lambda_bg - log(1 - meInt) / meDur
 
 # recovery percentage (compared to diversity lost during ME)
-reInt <- 1
+reInt <- 1.1
 
 # variations we want to test
-reIntChange <- c(1.25, 0.9)
+reIntChange <- c(1.2, 1)
 
 # speciation recovery rate
 # such that we expect reInt * number alive at meStart
@@ -261,13 +261,6 @@ smart.dir.create <- function(dir) {
   if (!dir.exists(dir)) dir.create(dir)
 }
 
-# get the base directory where everything should be
-baseDir <- "/Users/petrucci/Documents/research/EvolProject2021/simulation/"
-
-# create a directory to hold all simulations
-simDir <- paste0(baseDir, "replicates/")
-smart.dir.create(simDir)
-
 ###
 # consider parameter changes and run simulations
 
@@ -312,9 +305,6 @@ for (i in 2:nrow(key)) {
 # change stQSum values
 key[key$ref == "highSum", ]$stQSum <- stQSumChange[1]
 key[key$ref == "lowSum", ]$stQSum <- stQSumChange[2]
-
-# save key
-write_tsv(key, file = paste0(simDir, "key.tsv"))
 
 ###
 # auxiliary functions
@@ -535,7 +525,7 @@ simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
 
 # create function to run simulations 
 # for a list of parameters
-simulate <- function(nReps, comb, key) {
+simulate <- function(nReps, comb, key, simDir) {
   ## recover parameters from key
   pars <- key[comb, ]
   
@@ -675,7 +665,7 @@ simulate <- function(nReps, comb, key) {
   ## run simulations
   seed <- .Random.seed
   write.table(seed, file = paste0(combDir, "seed_", comb, ".txt"))
-  
+
   # run null simulations
   simRepsNull <- lapply(1:nReps, function(x) {
     print(paste0("comb: ", comb, " null: ", x))
