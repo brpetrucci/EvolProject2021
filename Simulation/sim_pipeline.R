@@ -8,19 +8,16 @@
 # packages required
 
 # devtools 
-library(devtools)
+invisible(library(devtools))
 
 # paleobuddy
-load_all()
+invisible(library(paleobuddy))
 
 # APE (for saving trees)
 library(ape)
 
 # readr (for write_tsv)
 library(readr)
-
-# rootsolve
-library(rootSolve)
 
 ###
 # simulation pipeline settings:
@@ -681,7 +678,7 @@ simulate <- function(nReps, comb, key, simDir) {
   
   # print simulations to file
   invisible(lapply(1:nReps, function(x) 
-    capture.output(print.sim(simListNull[[x]]), 
+    capture.output(print(simListNull[[x]]), 
                    file = paste0(nullSimsDir, "sim_", x))))
   invisible(lapply(1:nReps, function(x) 
     capture.output(lapply(simListNull[[x]], function(x) {
@@ -734,17 +731,17 @@ simulate <- function(nReps, comb, key, simDir) {
     
   # save simulation RData
   save(simList, file = paste0(traitsDir, "sim_list.RData"))
-  
-  # print simulations to file
-  invisible(lapply(1:nReps, function(x) 
-    capture.output(print.sim(simList[[x]]), 
+ 
+# print simulations to file
+  invisible(lapply(1:nReps, function(x)
+    capture.output(print(simList[[x]]),
                    file = paste0(traitsSimsDir, "sim_", x))))
-  invisible(lapply(1:nReps, function(x) 
+  invisible(lapply(1:nReps, function(x)
     capture.output(lapply(simList[[x]], function(x) {
       cat("\n")
-      x}), 
-      file = paste0(traitsSimsDir, "sim_", x),
-      append = TRUE)))
+      x}),
+                   file = paste0(traitsSimsDir, "sim_", x),
+                   append = TRUE))) 
   
   # and trait RData
   save(bmTraitsFunc, file = paste0(traitsDir, "bm_traits.RData"))
@@ -809,14 +806,10 @@ simulate <- function(nReps, comb, key, simDir) {
 }
 
 # run simulations
-nReps <- 1
-begin <- Sys.time()
-invisible(lapply(1:nrow(key), function(x)
-                 simulate(nReps, x, key)))
-end <- Sys.time()
-print(end - begin)
-write(end-begin, file = paste0(baseDir, "time_1rep.txt"))
-
-nReps <- 50
-invisible(lapply(1:nrow(key), function(x)
-  simulate(nReps, x, key)))
+#nReps <- 1
+#begin <- Sys.time()
+#invisible(lapply(1:nrow(key), function(x)
+#                 simulate(nReps, x, key)))
+#end <- Sys.time()
+#print(end - begin)
+#write(end-begin, file = paste0(baseDir, "time_1rep.txt"))

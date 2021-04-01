@@ -1,8 +1,11 @@
 # source pipeline (parameter definitions, simulation functions etc)
-source(file = "sim_pipeline.R")
+source(file = "/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/sim_pipeline.R")
 
 # recover arguments
 args <- commandArgs(trailingOnly = TRUE)
+
+# take out --args
+args <- args[-1]
 
 ###
 # check arguments
@@ -15,7 +18,7 @@ if (length(args) < 1) {
 # cannot have more than 3
 if (length(args) > 3) {
   stop("Too many arguments. Please supply a comb and optionally
-       an nReps argument only.")
+       a simDir and an nReps argument only.")
 }
 
 # make the first argument numeric
@@ -36,14 +39,14 @@ if (length(args) == 1) {
   nReps <- 50
   
   # create default simDir if it doesn't exist
-  simDir <- "/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates"
+  simDir <- "/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/"
   smart.dir.create(simDir)
 } else if (length(args) == 2) {
   # assume the second argument is nReps
   nReps <- as.numeric(args[2])
   
   # create simDir if it doesn't exist
-  simDir <- "/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates"
+  simDir <- "/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/"
   smart.dir.create(simDir)
 } else {
   nReps <- as.numeric(args[2])
@@ -55,6 +58,9 @@ if (length(args) == 1) {
 
 # save key
 write_tsv(key, file = paste0(simDir, "key.tsv"))
+
+# reset seed
+set.seed(seed = NULL)
 
 # run simulations
 simulate(nReps, comb, key, simDir)
