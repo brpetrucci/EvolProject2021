@@ -1,13 +1,21 @@
 #!/bin/bash
 
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=16
-#SBATCH --time=05:00:00
-#SBATCH --array=1-13
+#SBATCH --nodes=1 # 1 node per job
+#SBATCH --cpus-per-task=16 # 16 cores per node
+#SBATCH --time=05:00:00 # 5h - probably will take less but just to be safe
+#SBATCH --array=1-13 # array of jobs (13 parameter combinations)
 
-#SBATCH --output=job.%A_%a.out
+#SBATCH --output=job.%A_%a.out # names have master job id and array job id
 #SBATCH --error=job.%A_%a.err
 
+#SBATCH --mail-user=petrucci@iastate.edu   # my e-mail
+#SBATCH --mail-type=BEGIN # get notifications for all job cases
+#SBATCH --mail-type=END
+#SBATCH --mail-type=FAIL
+
+cd /work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation # go to the correct directory
+
 module load gcc/10.2.0-zuvaafu 
-module load r/4.0.4-py3-4khjixy
-Rscript --vanilla pipeline_wrapper.R --args $SLURM_ARRAY_TASK_ID
+module load r/4.0.4-py3-4khjixy # load required modules
+
+Rscript --vanilla pipeline_wrapper.R --args $SLURM_ARRAY_TASK_ID # run job number x
