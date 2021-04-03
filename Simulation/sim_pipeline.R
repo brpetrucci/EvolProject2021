@@ -8,10 +8,10 @@
 # packages required
 
 # devtools 
-invisible(library(devtools))
+suppressMessages(library(devtools))
 
 # paleobuddy
-invisible(library(paleobuddy))
+suppressMessages(library(paleobuddy))
 
 # APE (for saving trees)
 library(ape)
@@ -351,7 +351,7 @@ maxFossilsSp <- 20
 # these will be used to multiply by #sampled and get an average expected
 
 # create simulation function for one rep
-simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
+simulate_rep <- function(comb, tMax, lambda, mu, nFinal, rho, bins,
                              bmSigma2, bmX0, stQ, stX0, null = FALSE) {
   # set up test so while loop runs
   bounds <- FALSE
@@ -417,10 +417,8 @@ simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
     tree <- drop.fossil(make.phylo(sim))
 	
     # save sample and sim for debugging
-    save(sim, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_", comb,
-	                    "/sim_debug.RData")
-    save(sample, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_",
-			       comb, "/sample_debug.RData"),     
+    save(sim, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_", comb, "/sim_debug.RData"))
+    save(sample, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_", comb, "/sample_debug.RData"))
 
     # and an SA tree
     # remembering to drop extinct taxa and keep only the fossils
