@@ -415,7 +415,13 @@ simulate_rep <- function(tMax, lambda, mu, nFinal, rho, bins,
     
     # make a molecular tree
     tree <- drop.fossil(make.phylo(sim))
-    
+	
+    # save sample and sim for debugging
+    save(sim, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_", comb,
+	                    "/sim_debug.RData")
+    save(sample, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_",
+			       comb, "/sample_debug.RData"),     
+
     # and an SA tree
     # remembering to drop extinct taxa and keep only the fossils
     saTree <- drop.tip(make.phylo(sim, sample), 
@@ -666,7 +672,7 @@ simulate <- function(nReps, comb, key, simDir) {
   # run null simulations
   simRepsNull <- lapply(1:nReps, function(x) {
     print(paste0("comb: ", comb, " null: ", x))
-    simulate_rep(tMax, lambda_null, mu_null, nFinal, rho, bins,
+    simulate_rep(comb, tMax, lambda_null, mu_null, nFinal, rho, bins,
                  bmSigma2, bmX0, stQ, stX0, null = TRUE)
     })
   
@@ -720,7 +726,7 @@ simulate <- function(nReps, comb, key, simDir) {
   # run trait simulations
   simTraitsReps <- lapply(1:nReps, function(x) {
     print(paste0("comb: ", comb, " trait: ", x))
-    simulate_rep(tMax, lambda, mu, nFinal, rho, bins,
+    simulate_rep(comb, tMax, lambda, mu, nFinal, rho, bins,
                  bmSigma2, bmX0, stQ, stX0, null = FALSE)
   })
   
@@ -728,10 +734,10 @@ simulate <- function(nReps, comb, key, simDir) {
   simList <- lapply(1:nReps, function(x) simTraitsReps[[x]]$SIM)
   bmTraitsFunc <- lapply(1:nReps, function(x) simTraitsReps[[x]]$TRAITFUNCC)
   stTraitsFunc <- lapply(1:nReps, function(x) simTraitsReps[[x]]$TRAITFUNCD)
-    
+  print("Saving simList")    
   # save simulation RData
   save(simList, file = paste0(traitsDir, "sim_list.RData"))
- 
+  print("Saving sims")
 # print simulations to file
   invisible(lapply(1:nReps, function(x)
     capture.output(print(simList[[x]]),
@@ -742,20 +748,20 @@ simulate <- function(nReps, comb, key, simDir) {
       x}),
                    file = paste0(traitsSimsDir, "sim_", x),
                    append = TRUE))) 
-  
+  print("Saving trait funcs")
   # and trait RData
   save(bmTraitsFunc, file = paste0(traitsDir, "bm_traits.RData"))
   save(stTraitsFunc, file = paste0(traitsDir, "st_traits.RData"))
-  
+  print("Saving trait lists")
   # get trait lists
   # for molecular trees
   bmMolTraitList <- lapply(1:nReps, function(x) simTraitsReps[[x]]$TRAITSC)
   stMolTraitList <- lapply(1:nReps, function(x) simTraitsReps[[x]]$TRAITSD)
-  
+  print("And for SA")
   # and SA trees
   bmSATraitList <- lapply(1:nReps, function(x) simTraitsReps[[x]]$SATRAITSC)
   stSATraitList <- lapply(1:nReps, function(x) simTraitsReps[[x]]$SATRAITSD)
-  
+  print("Saving trait lists")
   # save them as .nex
   invisible(lapply(1:nReps, function(x)
     write.nexus.data(bmMolTraitList[[x]], 
@@ -765,6 +771,7 @@ simulate <- function(nReps, comb, key, simDir) {
     write.nexus.data(stMolTraitList[[x]], 
                      file = paste0(traitListsDir, "st_mol_traits_", x, ".nex"),
                      format = "standard")))
+  print("And for SA")
   invisible(lapply(1:nReps, function(x)
     write.nexus.data(bmSATraitList[[x]], 
                      file = paste0(traitListsDir, "bm_SA_traits_", x, ".nex"),
@@ -776,7 +783,7 @@ simulate <- function(nReps, comb, key, simDir) {
   
   # get fossil records
   fossilsList <- lapply(1:nReps, function(x) simTraitsReps[[x]]$SAMPLE)
-
+  print("Saving fossils")
   # save fossil records as tsv
   invisible(lapply(1:nReps, function(x)
     write_tsv(fossilsList[[x]], paste0(traitsFossilsDir, "fossils_", 
@@ -784,19 +791,19 @@ simulate <- function(nReps, comb, key, simDir) {
   
   # get trees
   treeList <-  lapply(1:nReps, function(x) simTraitsReps[[x]]$TREE)
-  
+  print("Saving trees")
   # save trees as .nex
   lapply(1:nReps, function(x)
     write.nexus(treeList[[x]], file = paste0(traitsTreeDir, "tree_",
                                              x, ".nex")))
-  
+  print("And sa trees")
   # and same for saTrees
   saTreeListNull <-  lapply(1:nReps, function(x) simTraitsReps[[x]]$SATREE)
   
   lapply(1:nReps, function(x)
     write.nexus(saTreeListNull[[x]], file = paste0(traitsTreeDir, "saTree_",
                                                    x, ".nex")))
-  
+  print("And fbd trees") 
   # aaand fbd trees
   fbdTreeList <-  lapply(1:nReps, function(x) simTraitsReps[[x]]$FBDTREE)
   
