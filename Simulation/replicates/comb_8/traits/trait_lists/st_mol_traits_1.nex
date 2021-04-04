@@ -1,0 +1,68 @@
+#NEXUS
+[Data written by write.nexus.data.R, Sat Apr  3 20:24:11 2021]
+BEGIN DATA;
+  DIMENSIONS NTAX=59 NCHAR=1;
+  FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
+  MATRIX
+    t96       0
+    t107      1
+    t111      1
+    t112      0
+    t113      1
+    t114      0
+    t129      1
+    t140      1
+    t142      1
+    t143      1
+    t144      1
+    t147      1
+    t150      1
+    t151      1
+    t154      1
+    t160      1
+    t167      1
+    t168      1
+    t169      1
+    t170      0
+    t171      1
+    t173      1
+    t174      1
+    t175      1
+    t176      1
+    t183      1
+    t187      1
+    t188      1
+    t189      1
+    t193      1
+    t199      1
+    t200      1
+    t201      1
+    t203      1
+    t204      1
+    t209      1
+    t210      1
+    t212      1
+    t213      1
+    t214      1
+    t216      1
+    t218      1
+    t219      1
+    t220      1
+    t222      1
+    t224      1
+    t228      1
+    t230      1
+    t231      1
+    t232      1
+    t235      1
+    t237      1
+    t238      1
+    t239      1
+    t240      1
+    t242      0
+    t245      1
+    t246      0
+    t247      1
+  ;
+END;
+

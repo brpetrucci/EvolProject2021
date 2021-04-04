@@ -416,10 +416,6 @@ simulate_rep <- function(comb, tMax, lambda, mu, nFinal, rho, bins,
     # make a molecular tree
     tree <- drop.fossil(make.phylo(sim))
 	
-    # save sample and sim for debugging
-    save(sim, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_", comb, "/sim_debug.RData"))
-    save(sample, file = paste0("/work/LAS/phylo-lab/petrucci/EvolProject2021/Simulation/replicates/comb_", comb, "/sample_debug.RData"))
-
     # and an SA tree
     # remembering to drop extinct taxa and keep only the fossils
     saTree <- drop.tip(make.phylo(sim, sample), 
@@ -736,7 +732,8 @@ simulate <- function(nReps, comb, key, simDir) {
   # save simulation RData
   save(simList, file = paste0(traitsDir, "sim_list.RData"))
   print("Saving sims")
-# print simulations to file
+  
+  # print simulations to file
   invisible(lapply(1:nReps, function(x)
     capture.output(print(simList[[x]]),
                    file = paste0(traitsSimsDir, "sim_", x))))
