@@ -10,6 +10,9 @@ library(readr)
 # and ape to read nexus data
 library(ape)
 
+# and geiger to estimate bm variance
+library(geiger)
+
 # directory where all simulations are
 simDir <- "/Users/petrucci/Documents/research/EvolProject2021/Simulation/replicates/"
 
@@ -64,21 +67,19 @@ for (i in 1:13) {
   # get bm trait variances
   bmVar[i, ] <- unlist(lapply(1:50, function(x) {
     # list of trait values at the time of simulation's end
-    traitList <- as.numeric(
-      unlist(
-        read.continuous.nexus.data(
-          paste0(traitsDir, "trait_lists/bm_mol_traits_", x, ".nex"))))
+    traitList <- as.numeric(unlist(lapply(which(simList[[x]]$EXTANT), function(y) 
+      bmTraitsFunc[[x]][[paste0("t", y)]](max(simList[[x]]$TS)))))
     
-    # list of trait value each extant species started with
-    X0s <- unlist(lapply(which(simList[[x]]$EXTANT), function(y)
-      bmTraitsFunc[[x]][[paste0("t", y)]](simList[[x]]$TS[y])))
+    if (length(traitList) < 5) return(NA)
+    
+    names(traitList) <- paste0("t", which(simList[[x]]$EXTANT))
     
     # phylogeny to get MRCA time
     phy <- drop.fossil(make.phylo(simList[[x]]))
     phy$root.time <- NULL
     
-    # we expect this to be bmSigma2[comb]
-    var(traitList + X0s) / max(node.depth.edgelength(phy))
+    # estimate BM variance
+    return(fitContinuous(phy, traitList)$opt$sigsq)
   }))
   
   # and the discrete ratios
