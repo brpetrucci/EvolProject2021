@@ -483,22 +483,13 @@ simulate_rep <- function(comb, tMax, lambda, mu, nFinal, rho, bins,
       
       names(saTreeTraitsDisc) <- paste0("t", saTreeTaxa)
       
-      # mininum variance
-      # half of expected for extant species
-      minVar <- mean(0.5 * bmSigma2 * sim$TS[sim$EXTANT])
-      
-      # check variance for the continuous traits
-      varCont <- min(var(saTreeTraitsCont), 
-                     var(treeTraitsCont))
-      
-      # and sum of discrete traits - we want there to be at least 4 of each
+      # and sum of discrete traits - we want there to be at least 5 of each
       sumDisc <- sum(treeTraitsDisc)
       
       # checks if not null
       bounds <- (nSampled >= minSamp) &&
-        (varCont >= minVar) &&
         (sumDisc >= 5) &&
-        (sumDisc <= (length(saTreeTaxa) - 5))
+        (sumDisc <= (length(treeTaxa) - 5))
     }
     
     # if counter is higher than 10, maybe rethink the parameters
