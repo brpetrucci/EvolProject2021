@@ -201,9 +201,9 @@ meanLambda <- function(l) {
 lambda_bg_0 <- uniroot(function(l) meanLambda(l) - 1/lambda_bg, 
                        interval = c(0.1, 1))$root
 
-# lambda_re decreases by 5% with one
+# lambda_re decreases by 15% with one
 # unit of body size away from optimum
-lambdaModCont <- 0.05 
+lambdaModCont <- 0.15
 
 # define lambda such that the expected value during 
 # BG is lambda_bg, and during RE is lambda_re
@@ -232,9 +232,9 @@ meanMu <- function(m) {
 mu_me_0 <- uniroot(function(m) meanMu(m) - 1/mu_me, 
                        interval = c(0.1, 1))$root
 
-# mu_bg increases by 5% with one
+# mu_bg increases by 15% with one
 # unit of body size away from optimum
-muModCont <- 0.05
+muModCont <- 0.15
 
 # define mu such that the expected value during
 # BG is mu_bg, and during ME is mu_me
@@ -352,7 +352,7 @@ maxFossilsSp <- 20
 
 # create simulation function for one rep
 simulate_rep <- function(comb, tMax, lambda, mu, nFinal, rho, bins,
-                             bmSigma2, bmX0, stQ, stX0, null = FALSE) {
+                             bmSigma2, bmX0, stQ, stX0) {
   # set up test so while loop runs
   bounds <- FALSE
   
@@ -476,7 +476,7 @@ simulate_rep <- function(comb, tMax, lambda, mu, nFinal, rho, bins,
     # and sum of discrete traits - we want there to be at least 5 of each
     sumDisc <- sum(treeTraitsDisc)
     
-    # checks if not null
+    # checks
     bounds <- (nSampled >= minSamp) &&
       (sumDisc >= 5) &&
       (sumDisc <= (length(treeTaxa) - 5))
@@ -598,13 +598,6 @@ save_sims <- function(simReps, targetDir) {
 # create function to run simulations 
 # for a list of parameters
 simulate <- function(nReps, comb, key, simDir) {
-  # create base directory if it does not exist
-  baseDir <- paste0(simDir, "replicates/")
-  smart.dir.create(baseDir)
-  
-  # write key
-  write_tsv(key, paste0(baseDir, "key.tsv"))
-  
   ## recover parameters from key
   pars <- key[comb, ]
   
@@ -647,7 +640,7 @@ simulate <- function(nReps, comb, key, simDir) {
   stQ01 <- pars[["stQ01"]]
   stQ10 <- pars[["stQSum"]] - stQ01
   
-  stQ <- matrix(c(0, stQ01, stQ10, 0), 2, 2)
+  stQ <- matrix(c(0, stQ10, stQ01, 0), 2, 2)
   
   meanLambda <- function(l) {
     exponent <- Vectorize(function(t, l) {
@@ -689,7 +682,7 @@ simulate <- function(nReps, comb, key, simDir) {
                      interval = c(0.1, 1),
                      extendInt = "yes")$root
   
-  muModCont <- 0.05 
+  muModCont <- pars[["muModCont"]]
   
   mu <- function(t, traits) {
     ifelse((t < meStart) || (t > meStart + meDur),
@@ -721,7 +714,7 @@ simulate <- function(nReps, comb, key, simDir) {
   simRepsNull <- lapply(1:nReps, function(x) {
     print(paste0("comb: ", comb, " null: ", x))
     simulate_rep(comb, tMax, lambda_null, mu_null, nFinal, rho, bins,
-                 bmSigma2, bmX0, stQ, stX0, null = TRUE)
+                 bmSigma2, bmX0, stQ, stX0)
     })
   
   # save them
@@ -731,7 +724,7 @@ simulate <- function(nReps, comb, key, simDir) {
   simTraitsReps <- lapply(1:nReps, function(x) {
     print(paste0("comb: ", comb, " trait: ", x))
     simulate_rep(comb, tMax, lambda, mu, nFinal, rho, bins,
-                 bmSigma2, bmX0, stQ, stX0, null = FALSE)
+                 bmSigma2, bmX0, stQ, stX0)
   })
   
   # save them
