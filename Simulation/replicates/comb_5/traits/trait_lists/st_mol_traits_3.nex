@@ -1,92 +1,34 @@
 #NEXUS
-[Data written by write.nexus.data.R, Sat Apr  3 18:48:55 2021]
+[Data written by write.nexus.data.R, Tue Apr  6 04:53:07 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=83 NCHAR=1;
+  DIMENSIONS NTAX=25 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t27       1
-    t34       0
-    t36       0
-    t55       1
-    t57       1
-    t58       1
-    t67       0
-    t68       0
-    t69       0
-    t95       1
-    t96       1
-    t97       1
-    t100      1
-    t101      1
-    t102      1
-    t107      0
-    t109      0
-    t111      0
-    t112      0
-    t132      1
-    t140      0
-    t144      1
-    t146      1
-    t152      0
-    t156      1
-    t157      0
-    t160      0
-    t161      0
-    t164      1
-    t179      1
-    t186      1
-    t187      1
-    t189      0
-    t191      0
-    t193      0
-    t194      0
-    t196      0
-    t197      0
-    t198      0
-    t199      0
-    t202      1
-    t203      1
-    t204      1
-    t214      1
-    t215      1
-    t219      1
-    t225      0
-    t227      0
-    t228      0
-    t229      0
-    t230      1
-    t231      0
-    t233      0
-    t234      0
-    t235      0
-    t236      0
-    t237      0
-    t238      0
-    t246      1
-    t247      1
-    t249      0
-    t251      0
-    t252      1
-    t254      1
-    t256      0
-    t257      0
-    t258      0
-    t259      0
-    t263      1
-    t264      1
-    t268      0
-    t269      1
-    t270      1
-    t271      0
-    t273      1
-    t276      1
-    t279      1
-    t281      0
-    t282      1
-    t283      0
-    t286      1
-    t287      1
-    t288      1
+    t9       0
+    t15      0
+    t18      0
+    t19      0
+    t20      0
+    t22      0
+    t26      0
+    t27      0
+    t28      0
+    t29      1
+    t30      1
+    t31      1
+    t32      1
+    t35      1
+    t38      1
+    t41      1
+    t44      1
+    t45      1
+    t46      1
+    t47      1
+    t49      1
+    t50      1
+    t51      1
+    t52      1
+    t53      1
   ;
 END;
 
