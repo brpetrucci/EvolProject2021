@@ -1,6 +1,7 @@
 for (i in 1:nrow(key)) {
   comb <- i
   
+  ## recover parameters from key
   pars <- key[comb, ]
   
   meDur <- pars[["meDur"]]
@@ -42,7 +43,7 @@ for (i in 1:nrow(key)) {
   stQ01 <- pars[["stQ01"]]
   stQ10 <- pars[["stQSum"]] - stQ01
   
-  stQ <- matrix(c(0, stQ01, stQ10, 0), 2, 2)
+  stQ <- matrix(c(0, stQ10, stQ01, 0), 2, 2)
   
   meanLambda <- function(l) {
     exponent <- Vectorize(function(t, l) {
@@ -84,7 +85,7 @@ for (i in 1:nrow(key)) {
                      interval = c(0.1, 1),
                      extendInt = "yes")$root
   
-  muModCont <- 0.05 
+  muModCont <- pars[["muModCont"]]
   
   mu <- function(t, traits) {
     ifelse((t < meStart) || (t > meStart + meDur),

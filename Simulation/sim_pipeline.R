@@ -32,7 +32,7 @@ library(readr)
   # and varying sum (0.025, 0.05, 0.1)
 # duration of ME: 1, 5 and 10 my
 # duration of RE: same
-# rho: 0.79 (MLE from calibration data)
+# rho: 0.5 (MLE from calibration data)
 # mu_bg: 0.12 (within bounds from literature, expected 35 species by 34my)
 # mu_me from expected pruning 0.5, 0.75, 0.9
 # lambda_bg: 0.225 (same as mu_bg)
@@ -64,7 +64,7 @@ lambda_bg <- 0.225
 
 mu_bg <- 0.12
 
-rho <- 0.79
+rho <- 0.5
 
 # number of expected species at the beginning of the ME
 nME <- 35
@@ -343,12 +343,11 @@ collapseFossils <- function(tree) {
 # 1/2 of minimum number of species
 minSamp <- nMin / 2
 
-# minimum mean number of fossil occurrences per sampled species
-minFossilsSp <- 1
+# minimum mean number of fossil occurrences 
+minFossils <- nMin * 2
 
 # and maximum 
-maxFossilsSp <- 20
-# these will be used to multiply by #sampled and get an average expected
+maxFossils <- nMax * 2
 
 # create simulation function for one rep
 simulate_rep <- function(comb, tMax, lambda, mu, nFinal, rho, bins,
@@ -397,10 +396,6 @@ simulate_rep <- function(comb, tMax, lambda, mu, nFinal, rho, bins,
       
       # number of sampled species
       nSampled <- length(unique(sample$Species))
-      
-      # get actual min and max fossils given number of sampled species
-      minFossils <- minFossilsSp * nSampled
-      maxFossils <- maxFossilsSp * nSampled
       
       # test
       sampleBounds <- nrow(sample) >= minFossils &&

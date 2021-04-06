@@ -41,6 +41,8 @@ nullBMVar <- traitBMVar <- matrix(0, nrow = 13, ncol = 50)
 nullSTMean <- traitSTMean <- nullSTVar <- traitSTVar <-
   matrix(0, nrow = 13, ncol = 50)
 
+# and fossil occurrences
+nullSampleN <- traitSampleN <- matrix(0, nrow = 13, ncol = 50)
 
 bmVals <- function(x, simList, traitFunc) {
   # list of trait values at the time of simulation's end
@@ -102,49 +104,88 @@ for (i in 1:13) {
   traitExtantN[i, ] <- unlist(lapply(1:length(simList), function(x)
     sum(simList[[x]]$EXTANT)))
   
-  # get function lists for null
-  load(paste0(nullDir, "bm_traits.RData"))
-  load(paste0(nullDir, "st_traits.RData"))
+  # # get function lists for null
+  # load(paste0(nullDir, "bm_traits.RData"))
+  # load(paste0(nullDir, "st_traits.RData"))
+  # 
+  # nullBMTraitsFunc <- bmTraitsFunc
+  # nullSTTraitsFunc <- stTraitsFunc
+  # 
+  # # and for traits
+  # load(paste0(traitsDir, "bm_traits.RData"))
+  # load(paste0(traitsDir, "st_traits.RData"))
+  # 
+  # # get null bm trait values
+  # nullBMVals <- lapply(1:50, function(x)
+  #   bmVals(x, simListNull, nullBMTraitsFunc))
+  # nullBMMean[i, ] <- unlist(lapply(1:50, function(x) 
+  #   nullBMVals[[x]]$mean))
+  # nullBMVar[i, ] <- unlist(lapply(1:50, function(x) 
+  #   nullBMVals[[x]]$var))
+  # 
+  # # get trait bm trait values
+  # traitBMVals <- lapply(1:50, function(x)
+  #   bmVals(x, simList, bmTraitsFunc))
+  # traitBMMean[i, ] <- unlist(lapply(1:50, function(x) 
+  #   traitBMVals[[x]]$mean))
+  # traitBMVar[i, ] <- unlist(lapply(1:50, function(x) 
+  #   traitBMVals[[x]]$var))
+  # 
+  # # get null st trait values
+  # nullSTVals <- lapply(1:50, function(x)
+  #   stVals(x, simListNull, nullSTTraitsFunc))
+  # nullSTMean[i, ] <- unlist(lapply(1:50, function(x) 
+  #   nullSTVals[[x]]$mean))
+  # nullSTVar[i, ] <- unlist(lapply(1:50, function(x) 
+  #   nullSTVals[[x]]$var))
+  # 
+  # # get trait st trait values
+  # traitSTVals <- lapply(1:50, function(x)
+  #   stVals(x, simList, stTraitsFunc))
+  # traitSTMean[i, ] <- unlist(lapply(1:50, function(x) 
+  #   traitSTVals[[x]]$mean))
+  # traitSTVar[i, ] <- unlist(lapply(1:50, function(x) 
+  #   traitSTVals[[x]]$var))
   
-  nullBMTraitsFunc <- bmTraitsFunc
-  nullSTTraitsFunc <- stTraitsFunc
+  # get samples for null and traits
+  nullSampleN[i, ] <- unlist(lapply(1:50, function(x) {
+    sample <- suppressMessages(read_tsv(paste0(nullDir, "fossils/fossils_", x, ".tsv")))
+    rhos <- c()
+    
+    for (i in 1:length(simListNull[[x]]$TS)) {
+      nOccs <- nrow(sample[sample$Species == paste0("t", i), ])
+      dur <- simListNull[[x]]$TS - ifelse(is.na(simListNull[[x]]$TE),
+                                          0, simListNull[[x]]$TE)
+      rhos <- c(rhos, mean(nOccs/dur))
+    }
+    
+    return(mean(rhos))
+  }))
   
-  # and for traits
-  load(paste0(traitsDir, "bm_traits.RData"))
-  load(paste0(traitsDir, "st_traits.RData"))
-  
-  # get null bm trait values
-  nullBMVals <- lapply(1:50, function(x)
-    bmVals(x, simListNull, nullBMTraitsFunc))
-  nullBMMean[i, ] <- unlist(lapply(1:50, function(x) 
-    nullBMVals[[x]]$mean))
-  nullBMVar[i, ] <- unlist(lapply(1:50, function(x) 
-    nullBMVals[[x]]$var))
-  
-  # get trait bm trait values
-  traitBMVals <- lapply(1:50, function(x)
-    bmVals(x, simList, bmTraitsFunc))
-  traitBMMean[i, ] <- unlist(lapply(1:50, function(x) 
-    traitBMVals[[x]]$mean))
-  traitBMVar[i, ] <- unlist(lapply(1:50, function(x) 
-    traitBMVals[[x]]$var))
-  
-  # get null st trait values
-  nullSTVals <- lapply(1:50, function(x)
-    stVals(x, simListNull, nullSTTraitsFunc))
-  nullSTMean[i, ] <- unlist(lapply(1:50, function(x) 
-    nullSTVals[[x]]$mean))
-  nullSTVar[i, ] <- unlist(lapply(1:50, function(x) 
-    nullSTVals[[x]]$var))
-  
-  # get trait st trait values
-  traitSTVals <- lapply(1:50, function(x)
-    stVals(x, simList, stTraitsFunc))
-  traitSTMean[i, ] <- unlist(lapply(1:50, function(x) 
-    traitSTVals[[x]]$mean))
-  traitSTVar[i, ] <- unlist(lapply(1:50, function(x) 
-    traitSTVals[[x]]$var))
+  traitSampleN[i, ] <- unlist(lapply(1:50, function(x) {
+    sample <- suppressMessages(read_tsv(paste0(traitsDir, "fossils/fossils_", x, ".tsv")))
+    rhos <- c()
+    
+    for (i in 1:length(simList[[x]]$TS)) {
+      nOccs <- nrow(sample[sample$Species == paste0("t", i), ])
+      dur <- simList[[x]]$TS - ifelse(is.na(simList[[x]]$TE),
+                                      0, simList[[x]]$TE)
+      rhos <- c(rhos, mean(nOccs/dur))
+    }
+    
+    return(mean(rhos))
+  })) 
 }
+
+###
+# number of total species
+boxplot.matrix(nullN, use.cols = FALSE, outline = FALSE)
+abline(h = 200)
+boxplot.matrix(traitN, use.cols = FALSE, outline = FALSE, add = TRUE, col = "green")
+
+boxplot.matrix(nullExtantN, use.cols = FALSE, outline = FALSE)
+abline(h = 60)
+boxplot.matrix(traitExtantN, use.cols = FALSE, outline = FALSE, add = TRUE, col = "green")
 
 boxplot.matrix(nullBMMean, use.cols = FALSE, outline = FALSE)
 abline(h=0)
@@ -176,3 +217,6 @@ abline(h = stMean1 * (1 - stMean1))
 abline(h = stMean2 * (1 - stMean2), col = 'red')
 abline(h = stMean3 * (1 - stMean3), col = 'blue')
 boxplot.matrix(traitSTVar, use.cols = FALSE, outline = FALSE, col = "green", add = TRUE)
+
+boxplot.matrix(nullSampleN, use.cols = FALSE, outline = FALSE)
+boxplot.matrix(traitSampleN, use.cols = FALSE, outline = FALSE)
