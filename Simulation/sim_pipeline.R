@@ -725,7 +725,7 @@ simulate <- function(nReps, comb, key, simDir) {
     })
   
   # save them
-  save_sims(simRepsNull, nullDir)
+  invisible(save_sims(simRepsNull, nullDir))
   
   # run trait simulations
   simTraitsReps <- lapply(1:nReps, function(x) {
@@ -735,5 +735,5 @@ simulate <- function(nReps, comb, key, simDir) {
   })
   
   # save them
-  save_sims(simTraitsReps, traitsDir)
+  invisible(save_sims(simTraitsReps, traitsDir))
 }
