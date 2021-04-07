@@ -1,40 +1,87 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 03:23:26 2021]
+[Data written by write.nexus.data.R, Tue Apr  6 23:02:39 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=31 NCHAR=1;
+  DIMENSIONS NTAX=78 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t8       1
-    t12      1
-    t19      1
-    t22      1
-    t23      1
-    t24      1
-    t25      0
-    t26      1
-    t29      1
-    t30      1
-    t31      0
-    t38      1
-    t39      1
-    t41      0
-    t42      1
-    t43      0
-    t44      1
-    t45      0
-    t47      0
-    t50      1
-    t51      1
-    t52      0
-    t53      1
-    t54      1
-    t55      0
-    t56      0
-    t57      0
-    t58      1
-    t59      0
-    t61      0
-    t62      0
+    t81       0
+    t98       0
+    t102      1
+    t110      0
+    t112      0
+    t113      0
+    t116      0
+    t119      0
+    t120      0
+    t121      0
+    t124      0
+    t125      0
+    t126      0
+    t128      0
+    t130      0
+    t131      0
+    t132      0
+    t135      1
+    t142      0
+    t144      0
+    t145      0
+    t146      0
+    t147      0
+    t148      0
+    t151      0
+    t152      0
+    t153      0
+    t155      0
+    t157      1
+    t159      0
+    t160      0
+    t161      1
+    t162      0
+    t163      1
+    t164      1
+    t165      0
+    t166      0
+    t168      0
+    t170      0
+    t171      1
+    t172      0
+    t173      0
+    t176      0
+    t179      0
+    t186      0
+    t187      0
+    t188      0
+    t189      1
+    t190      1
+    t197      0
+    t198      0
+    t199      0
+    t201      0
+    t202      0
+    t203      0
+    t204      0
+    t205      0
+    t208      0
+    t214      0
+    t215      0
+    t216      0
+    t221      0
+    t223      0
+    t224      1
+    t225      0
+    t227      0
+    t228      0
+    t229      0
+    t230      0
+    t232      0
+    t234      0
+    t236      0
+    t237      0
+    t238      0
+    t239      1
+    t240      0
+    t241      0
+    t243      0
   ;
 END;
 

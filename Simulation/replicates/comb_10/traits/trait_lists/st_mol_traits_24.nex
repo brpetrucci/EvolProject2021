@@ -1,30 +1,102 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 06:51:10 2021]
+[Data written by write.nexus.data.R, Wed Apr  7 02:08:56 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=21 NCHAR=1;
+  DIMENSIONS NTAX=93 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t32      1
-    t36      1
-    t44      0
-    t45      0
-    t46      0
-    t53      0
-    t54      1
-    t62      0
-    t63      0
-    t64      0
-    t68      1
-    t69      1
-    t70      1
-    t71      1
-    t73      1
-    t74      1
-    t82      1
-    t83      1
-    t85      1
-    t86      1
-    t92      0
+    t69       1
+    t80       0
+    t95       0
+    t96       0
+    t97       0
+    t98       0
+    t99       0
+    t102      1
+    t106      0
+    t110      0
+    t111      0
+    t112      0
+    t113      0
+    t116      0
+    t118      1
+    t131      0
+    t132      0
+    t133      0
+    t134      0
+    t138      1
+    t141      0
+    t144      0
+    t145      0
+    t146      0
+    t147      0
+    t148      0
+    t149      0
+    t152      0
+    t153      0
+    t154      0
+    t155      0
+    t156      0
+    t159      1
+    t160      0
+    t162      0
+    t163      0
+    t164      0
+    t166      0
+    t167      0
+    t170      0
+    t171      0
+    t173      1
+    t174      1
+    t175      1
+    t177      1
+    t182      0
+    t186      0
+    t187      1
+    t188      0
+    t189      1
+    t190      0
+    t191      0
+    t192      0
+    t193      0
+    t194      0
+    t196      1
+    t198      1
+    t200      1
+    t201      1
+    t202      1
+    t203      1
+    t204      1
+    t207      0
+    t208      0
+    t209      0
+    t212      0
+    t213      0
+    t214      0
+    t215      1
+    t216      1
+    t217      1
+    t218      1
+    t219      1
+    t220      1
+    t221      1
+    t222      0
+    t223      0
+    t224      0
+    t225      0
+    t226      0
+    t228      1
+    t229      1
+    t230      1
+    t231      0
+    t233      1
+    t234      1
+    t237      0
+    t238      0
+    t241      0
+    t243      1
+    t244      1
+    t245      1
+    t247      1
   ;
 END;
 

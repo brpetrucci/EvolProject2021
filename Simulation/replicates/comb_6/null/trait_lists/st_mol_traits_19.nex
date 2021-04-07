@@ -1,68 +1,55 @@
 #NEXUS
-[Data written by write.nexus.data.R, Mon Apr  5 21:56:00 2021]
+[Data written by write.nexus.data.R, Tue Apr  6 15:56:47 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=59 NCHAR=1;
+  DIMENSIONS NTAX=46 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t56       1
-    t59       1
-    t60       1
-    t61       1
+    t80       1
+    t81       0
     t94       1
-    t95       1
     t96       0
-    t97       1
-    t98       1
-    t99       1
-    t100      1
+    t98       0
     t101      1
-    t102      1
+    t104      0
+    t105      0
+    t107      1
+    t109      0
+    t110      0
+    t111      0
+    t112      0
+    t113      1
+    t114      0
+    t117      1
+    t119      0
+    t121      1
+    t122      1
+    t123      1
+    t125      0
+    t127      0
+    t133      0
+    t134      0
+    t135      0
+    t136      0
+    t138      1
+    t143      0
+    t144      0
+    t145      0
     t146      0
-    t151      1
-    t152      1
-    t153      1
-    t155      1
-    t156      1
-    t157      1
-    t158      1
-    t159      1
-    t192      1
-    t193      0
-    t195      1
-    t196      1
-    t197      1
-    t198      1
-    t199      1
-    t200      1
-    t223      1
-    t230      1
-    t231      1
-    t255      1
-    t271      1
-    t272      1
-    t273      1
-    t274      1
-    t285      1
-    t287      1
-    t288      1
-    t289      1
-    t293      1
-    t294      1
-    t295      1
-    t297      1
-    t298      0
-    t300      1
-    t301      0
-    t304      1
-    t306      1
-    t307      0
-    t308      0
-    t309      1
-    t310      1
-    t311      1
-    t312      0
-    t315      0
-    t317      0
+    t149      0
+    t151      0
+    t152      0
+    t154      0
+    t156      0
+    t157      0
+    t159      0
+    t160      0
+    t165      0
+    t167      0
+    t168      1
+    t169      1
+    t170      0
+    t173      1
+    t174      1
   ;
 END;
 

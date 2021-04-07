@@ -1,26 +1,104 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 02:03:36 2021]
+[Data written by write.nexus.data.R, Wed Apr  7 03:34:02 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=17 NCHAR=1;
+  DIMENSIONS NTAX=95 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t33      0
-    t34      1
-    t37      0
-    t44      1
-    t46      1
-    t47      1
-    t48      0
-    t53      1
-    t55      0
-    t56      0
-    t57      1
-    t59      0
-    t62      1
-    t68      1
-    t70      1
-    t71      1
-    t72      1
+    t71       1
+    t92       1
+    t93       1
+    t95       1
+    t121      1
+    t135      1
+    t141      1
+    t142      1
+    t144      1
+    t171      0
+    t172      1
+    t173      0
+    t178      1
+    t179      1
+    t192      0
+    t195      0
+    t196      0
+    t197      0
+    t198      0
+    t201      0
+    t202      0
+    t203      1
+    t204      1
+    t205      1
+    t206      1
+    t207      1
+    t227      0
+    t228      0
+    t232      0
+    t233      0
+    t234      0
+    t236      0
+    t237      0
+    t238      0
+    t239      0
+    t240      1
+    t241      1
+    t247      1
+    t248      0
+    t250      0
+    t256      0
+    t257      0
+    t258      0
+    t259      0
+    t262      0
+    t264      0
+    t265      0
+    t266      0
+    t269      0
+    t276      0
+    t279      0
+    t283      0
+    t284      0
+    t285      0
+    t286      0
+    t288      0
+    t289      0
+    t290      0
+    t295      0
+    t299      0
+    t300      0
+    t303      0
+    t306      1
+    t308      1
+    t309      0
+    t311      0
+    t313      0
+    t314      0
+    t318      0
+    t319      0
+    t323      0
+    t324      0
+    t325      0
+    t327      1
+    t329      0
+    t330      0
+    t331      1
+    t333      0
+    t335      0
+    t336      1
+    t338      0
+    t339      0
+    t340      0
+    t341      1
+    t342      1
+    t345      0
+    t346      0
+    t347      0
+    t348      0
+    t349      1
+    t352      0
+    t353      0
+    t354      0
+    t356      0
+    t357      0
   ;
 END;
 

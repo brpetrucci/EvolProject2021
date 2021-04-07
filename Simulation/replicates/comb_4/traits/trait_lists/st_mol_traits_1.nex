@@ -1,81 +1,54 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 02:03:36 2021]
+[Data written by write.nexus.data.R, Wed Apr  7 03:34:01 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=72 NCHAR=1;
+  DIMENSIONS NTAX=45 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t19       1
-    t33       1
-    t43       1
-    t46       1
-    t63       0
-    t65       0
-    t66       0
+    t21       0
+    t22       0
+    t42       0
+    t43       0
+    t44       0
+    t45       0
+    t61       0
     t74       0
     t75       0
-    t76       1
+    t77       0
     t78       0
-    t79       1
-    t84       0
-    t86       1
-    t88       0
-    t90       1
-    t92       1
-    t93       1
-    t95       0
-    t96       0
-    t97       1
-    t100      0
-    t102      0
-    t105      1
-    t106      1
-    t107      1
-    t109      1
-    t110      1
+    t82       1
+    t89       0
+    t90       0
+    t91       0
+    t92       0
+    t93       0
+    t104      1
+    t105      0
+    t106      0
+    t108      1
     t111      0
-    t112      1
-    t113      1
-    t114      1
-    t117      0
-    t118      0
-    t120      1
+    t112      0
+    t118      1
+    t120      0
+    t121      0
     t122      0
-    t125      0
-    t126      0
-    t128      1
-    t129      1
+    t124      0
+    t127      0
+    t129      0
     t130      1
-    t131      1
-    t132      1
-    t133      1
-    t134      1
-    t135      0
-    t137      0
+    t132      0
+    t133      0
     t138      1
-    t139      1
-    t140      1
+    t139      0
+    t140      0
+    t141      1
     t143      1
-    t144      0
-    t145      1
-    t146      0
-    t147      0
-    t152      1
-    t153      1
-    t154      1
-    t156      1
-    t157      1
+    t144      1
+    t149      0
+    t150      0
+    t151      1
+    t156      0
     t158      1
     t159      1
-    t161      0
-    t167      1
-    t168      1
-    t169      1
-    t170      1
-    t171      1
-    t172      1
-    t173      1
-    t174      1
-    t175      1
   ;
 END;
 

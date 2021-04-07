@@ -1,55 +1,83 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 08:34:22 2021]
+[Data written by write.nexus.data.R, Wed Apr  7 01:18:19 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=46 NCHAR=1;
+  DIMENSIONS NTAX=74 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t41       1
-    t60       1
-    t95       1
-    t100      1
-    t101      1
-    t102      1
+    t90       0
     t107      1
-    t112      1
-    t113      1
-    t114      0
-    t118      1
-    t119      0
-    t121      0
-    t122      1
-    t123      1
-    t124      1
-    t128      1
-    t131      1
-    t132      0
-    t134      0
-    t135      1
-    t137      1
-    t142      1
-    t144      0
-    t146      0
-    t147      0
-    t148      0
-    t149      0
-    t150      0
-    t151      1
+    t129      1
+    t138      0
+    t141      0
     t152      1
-    t153      1
-    t154      1
-    t155      1
-    t156      1
-    t157      0
-    t158      0
-    t159      0
-    t160      0
-    t161      0
+    t157      1
     t162      0
-    t163      0
-    t164      1
-    t165      1
-    t166      1
-    t167      0
+    t169      0
+    t174      0
+    t176      0
+    t179      1
+    t180      1
+    t182      0
+    t184      0
+    t185      0
+    t186      0
+    t187      0
+    t190      0
+    t192      0
+    t193      0
+    t196      0
+    t197      0
+    t198      0
+    t199      0
+    t201      0
+    t202      0
+    t205      0
+    t210      1
+    t214      0
+    t215      0
+    t216      0
+    t221      0
+    t222      0
+    t223      0
+    t224      0
+    t225      0
+    t227      1
+    t228      0
+    t229      0
+    t231      0
+    t232      0
+    t235      0
+    t237      0
+    t238      0
+    t244      0
+    t245      0
+    t249      0
+    t250      0
+    t251      0
+    t252      0
+    t253      0
+    t254      0
+    t255      1
+    t256      0
+    t257      0
+    t258      0
+    t261      0
+    t262      0
+    t263      0
+    t264      0
+    t265      0
+    t266      0
+    t267      0
+    t268      0
+    t269      0
+    t270      1
+    t271      0
+    t272      0
+    t273      0
+    t274      0
+    t275      0
+    t276      0
+    t277      0
   ;
 END;
 

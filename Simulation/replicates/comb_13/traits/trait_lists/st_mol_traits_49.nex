@@ -1,107 +1,27 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 10:34:54 2021]
+[Data written by write.nexus.data.R, Wed Apr  7 01:28:46 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=98 NCHAR=1;
+  DIMENSIONS NTAX=18 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t39       1
-    t61       0
-    t80       0
-    t82       1
-    t83       0
-    t84       0
-    t85       0
-    t96       0
-    t99       1
-    t107      0
-    t112      0
-    t115      0
-    t122      0
-    t123      0
-    t128      1
-    t129      1
-    t132      1
-    t135      0
-    t136      1
-    t137      0
-    t138      0
-    t140      0
-    t144      1
-    t145      1
-    t148      0
-    t153      0
-    t155      0
-    t156      0
-    t158      0
-    t161      0
-    t165      1
-    t167      0
-    t171      1
-    t172      1
-    t173      1
-    t175      0
-    t176      0
-    t179      0
-    t180      0
-    t181      0
-    t184      1
-    t185      0
-    t186      0
-    t189      0
-    t190      0
-    t194      0
-    t195      0
-    t196      0
-    t198      0
-    t204      1
-    t205      1
-    t206      1
-    t207      1
-    t209      0
-    t210      1
-    t213      1
-    t214      1
-    t215      1
-    t216      1
-    t217      0
-    t219      0
-    t221      0
-    t222      0
-    t223      0
-    t227      0
-    t229      0
-    t230      0
-    t231      0
-    t232      0
-    t233      0
-    t234      0
-    t238      1
-    t239      1
-    t240      0
-    t242      0
-    t243      0
-    t245      0
-    t246      0
-    t247      0
-    t248      0
-    t249      0
-    t250      0
-    t251      0
-    t254      0
-    t255      1
-    t257      0
-    t259      0
-    t261      0
-    t263      0
-    t266      0
-    t267      0
-    t268      0
-    t269      0
-    t270      0
-    t271      1
-    t273      0
-    t275      0
-    t276      0
+    t19      0
+    t22      1
+    t32      0
+    t38      1
+    t39      0
+    t40      1
+    t41      1
+    t45      0
+    t48      1
+    t51      1
+    t52      1
+    t53      0
+    t56      1
+    t60      0
+    t61      1
+    t62      1
+    t66      1
+    t67      0
   ;
 END;
 

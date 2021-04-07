@@ -2,8 +2,6 @@
 
 #SBATCH --nodes=1 # 1 node per job
 #SBATCH --partition=biocrunch # partition (from guide in pronto website)
-#SBATCH --cpus-per-task=16 # 16 cores per node
-#SBATCH --mem=128G # Maximum amount of memory this job will be given
 #SBATCH --time=02-00:00:00 # 48h - probably will take less but just to be safe
 #SBATCH --array=1-13 # array of jobs (13 parameter combinations)
 

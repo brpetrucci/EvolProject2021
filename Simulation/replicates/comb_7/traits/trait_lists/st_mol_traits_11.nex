@@ -1,68 +1,67 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 03:59:55 2021]
+[Data written by write.nexus.data.R, Tue Apr  6 22:46:12 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=59 NCHAR=1;
+  DIMENSIONS NTAX=58 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t58       1
-    t75       0
-    t81       0
-    t90       1
-    t91       1
-    t104      0
-    t107      0
+    t43       0
+    t44       0
+    t45       0
+    t51       1
+    t57       1
+    t58       0
+    t59       1
+    t60       0
+    t72       0
+    t73       1
+    t78       0
+    t82       0
+    t84       1
+    t86       0
+    t94       1
+    t95       0
+    t96       0
+    t98       0
+    t99       0
+    t102      1
+    t103      1
+    t104      1
+    t106      1
+    t108      1
+    t110      0
+    t111      0
+    t112      0
     t114      0
-    t115      1
-    t118      1
-    t132      1
+    t115      0
+    t117      1
+    t120      0
+    t121      1
+    t123      1
+    t125      1
+    t126      1
+    t131      0
+    t135      0
+    t136      0
+    t138      0
+    t139      1
     t140      1
-    t147      1
+    t141      1
+    t143      1
+    t144      1
+    t145      1
+    t146      0
+    t147      0
     t148      0
     t151      1
     t152      1
     t153      1
-    t163      1
-    t164      0
-    t165      1
-    t169      1
-    t173      1
-    t176      1
-    t177      1
-    t180      1
-    t185      0
-    t193      0
-    t195      0
-    t197      1
-    t199      0
-    t202      1
-    t204      1
-    t215      1
-    t218      0
-    t221      1
-    t223      1
-    t226      0
-    t230      1
-    t232      1
-    t236      1
-    t238      0
-    t239      0
-    t240      0
-    t241      1
-    t245      1
-    t247      1
-    t248      1
-    t250      1
-    t251      0
-    t252      0
-    t253      0
-    t256      1
-    t258      1
-    t259      1
-    t260      1
-    t262      0
-    t263      1
-    t265      0
-    t266      0
+    t154      1
+    t155      0
+    t156      0
+    t157      0
+    t158      1
+    t159      1
+    t160      0
   ;
 END;
 

@@ -1,95 +1,37 @@
 #NEXUS
-[Data written by write.nexus.data.R, Mon Apr  5 21:48:15 2021]
+[Data written by write.nexus.data.R, Tue Apr  6 15:49:41 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=86 NCHAR=1;
+  DIMENSIONS NTAX=28 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t85       1
-    t87       1
+    t21       0
+    t59       1
+    t75       0
+    t86       0
+    t94       0
+    t96       0
+    t98       0
+    t99       0
+    t104      1
+    t108      0
+    t109      0
+    t110      0
+    t112      0
+    t113      0
+    t115      0
+    t116      1
     t117      1
-    t124      0
+    t120      0
+    t123      0
+    t124      1
     t125      1
-    t138      1
-    t140      0
-    t159      1
-    t166      1
-    t169      1
-    t170      1
-    t171      1
-    t173      1
-    t175      1
-    t188      0
-    t194      1
-    t200      1
-    t201      1
-    t203      0
-    t210      1
-    t212      0
-    t214      1
-    t217      1
-    t218      1
-    t219      1
-    t220      1
-    t222      1
-    t224      1
-    t226      1
-    t228      1
-    t229      1
-    t237      1
-    t245      1
-    t246      1
-    t248      1
-    t250      1
-    t254      1
-    t255      0
-    t261      1
-    t264      1
-    t265      1
-    t266      1
-    t269      1
-    t270      1
-    t273      1
-    t274      0
-    t275      1
-    t285      1
-    t286      1
-    t287      1
-    t288      1
-    t289      1
-    t290      1
-    t291      1
-    t292      1
-    t296      1
-    t297      1
-    t298      1
-    t299      0
-    t300      1
-    t301      1
-    t302      1
-    t304      1
-    t305      1
-    t309      1
-    t310      0
-    t314      1
-    t315      1
-    t316      1
-    t318      1
-    t319      1
-    t321      0
-    t323      1
-    t324      1
-    t325      1
-    t326      1
-    t332      1
-    t334      1
-    t336      1
-    t337      1
-    t338      1
-    t339      1
-    t340      1
-    t341      1
-    t343      1
-    t344      1
+    t126      0
+    t127      1
+    t128      1
+    t130      1
+    t131      1
+    t132      1
+    t134      1
   ;
 END;
 

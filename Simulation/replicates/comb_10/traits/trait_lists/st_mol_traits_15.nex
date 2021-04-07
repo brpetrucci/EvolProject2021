@@ -1,107 +1,45 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 06:51:10 2021]
+[Data written by write.nexus.data.R, Wed Apr  7 02:08:56 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=98 NCHAR=1;
+  DIMENSIONS NTAX=36 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t26       1
-    t42       1
-    t43       1
-    t44       1
-    t57       1
-    t58       1
-    t59       1
-    t60       1
-    t61       1
-    t73       1
-    t77       1
-    t78       0
-    t80       1
-    t81       1
-    t83       1
-    t85       1
-    t86       1
-    t89       0
-    t90       1
-    t91       0
-    t92       1
-    t96       1
-    t100      1
-    t105      1
-    t106      1
-    t107      1
-    t108      0
-    t109      0
-    t110      1
-    t111      1
-    t112      1
-    t113      0
-    t114      1
-    t119      1
-    t120      1
-    t123      0
-    t127      1
-    t128      1
-    t129      1
-    t130      1
-    t134      1
-    t135      1
-    t136      1
-    t137      1
-    t143      1
-    t144      1
-    t145      1
-    t148      1
-    t149      1
-    t150      1
-    t152      0
-    t153      0
+    t68       0
+    t90       0
+    t92       0
+    t93       0
+    t104      0
+    t112      0
+    t114      0
+    t125      0
+    t126      0
+    t127      0
+    t128      0
+    t136      0
+    t140      0
+    t142      0
+    t144      0
+    t145      0
     t156      1
-    t158      1
-    t160      1
-    t162      1
+    t163      1
     t165      1
     t166      0
-    t167      1
-    t168      1
+    t168      0
     t169      1
+    t170      1
     t172      1
-    t175      1
-    t176      0
-    t178      0
-    t179      0
-    t180      0
+    t175      0
+    t177      1
+    t178      1
+    t181      1
     t182      1
-    t183      1
-    t185      1
-    t186      1
-    t187      0
-    t189      1
-    t191      1
-    t193      0
-    t195      0
-    t196      0
-    t197      0
-    t199      1
-    t200      1
-    t201      1
-    t202      1
-    t204      1
-    t205      1
-    t208      1
-    t209      1
-    t210      1
-    t211      0
-    t212      0
-    t213      0
-    t214      0
-    t215      0
-    t219      1
-    t220      1
-    t221      1
-    t222      1
-    t223      0
-    t224      0
+    t183      0
+    t184      0
+    t185      0
+    t186      0
+    t189      0
+    t190      0
+    t191      0
   ;
 END;
 

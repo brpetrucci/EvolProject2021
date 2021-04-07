@@ -1,70 +1,63 @@
 #NEXUS
-[Data written by write.nexus.data.R, Tue Apr  6 07:54:18 2021]
+[Data written by write.nexus.data.R, Wed Apr  7 02:56:52 2021]
 BEGIN DATA;
-  DIMENSIONS NTAX=61 NCHAR=1;
+  DIMENSIONS NTAX=54 NCHAR=1;
   FORMAT DATATYPE=STANDARD MISSING=? GAP=- INTERLEAVE=NO symbols="0123456789";
   MATRIX
-    t44       1
-    t85       1
-    t103      1
-    t106      1
-    t107      1
-    t109      1
-    t110      1
+    t29       0
+    t39       0
+    t52       0
+    t55       0
+    t56       0
+    t61       0
+    t70       0
+    t88       1
+    t90       0
+    t91       0
+    t93       0
+    t94       0
+    t96       0
+    t98       0
+    t100      1
+    t101      0
     t111      0
-    t118      1
-    t124      1
-    t127      1
-    t128      1
-    t130      1
+    t112      0
+    t113      0
+    t114      0
+    t115      0
     t132      1
-    t133      1
-    t134      1
-    t135      1
-    t136      1
+    t134      0
+    t136      0
     t137      0
     t138      0
-    t140      1
-    t145      1
-    t147      1
-    t148      1
-    t149      1
-    t150      1
-    t151      1
-    t152      1
-    t153      1
-    t154      1
-    t156      0
-    t157      1
-    t158      1
-    t159      0
-    t160      0
-    t161      0
-    t162      1
-    t163      1
+    t139      0
+    t140      0
+    t141      0
+    t142      1
+    t149      0
+    t150      0
+    t152      0
+    t155      0
+    t163      0
+    t164      0
+    t165      0
+    t166      0
     t167      0
-    t169      1
-    t171      1
+    t168      0
+    t169      0
     t173      0
-    t174      1
-    t175      1
-    t176      1
-    t178      1
-    t179      0
-    t180      1
-    t181      1
-    t182      1
-    t183      1
+    t174      0
+    t179      1
+    t182      0
+    t183      0
     t184      1
-    t187      1
-    t188      1
-    t189      1
-    t190      1
-    t192      1
-    t195      1
-    t196      1
-    t197      1
-    t198      1
+    t185      0
+    t186      0
+    t188      0
+    t190      0
+    t192      0
+    t194      0
+    t195      0
   ;
 END;
 

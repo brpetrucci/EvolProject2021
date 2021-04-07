@@ -690,7 +690,7 @@ simulate <- function(nReps, comb, key, simDir) {
   ## create directories
   
   # base directory for simulations with parameter combination comb
-  combDir <- paste0(baseDir, "comb_", comb, "/")
+  combDir <- paste0(simDir, "comb_", comb, "/")
   smart.dir.create(combDir)
   
   # null directory
