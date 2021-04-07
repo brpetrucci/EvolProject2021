@@ -39,7 +39,7 @@ nullBMVar <- traitBMVar <- matrix(0, nrow = 13, ncol = 50)
 
 # same for discrete
 nullSTMean <- traitSTMean <- nullSTVar <- traitSTVar <-
-  matrix(0, nrow = 13, ncol = 50)
+  nullSTSum <- traitSTSum <- matrix(0, nrow = 13, ncol = 50)
 
 # and fossil occurrences
 nullSampleN <- traitSampleN <- matrix(0, nrow = 13, ncol = 50)
@@ -70,7 +70,7 @@ stVals <- function(x, simList, traitFunc) {
   
   names(traitList) <- paste0("t", which(simList[[x]]$EXTANT))
   
-  return(list(mean = mean(traitList), var = var(traitList)))
+  return(list(mean = mean(traitList), sum = sum(traitList) / length(traitList)))
 }
 
 # loop through combinations of parameters
@@ -104,48 +104,44 @@ for (i in 1:13) {
   traitExtantN[i, ] <- unlist(lapply(1:length(simList), function(x)
     sum(simList[[x]]$EXTANT)))
   
-  # # get function lists for null
-  # load(paste0(nullDir, "bm_traits.RData"))
-  # load(paste0(nullDir, "st_traits.RData"))
-  # 
-  # nullBMTraitsFunc <- bmTraitsFunc
-  # nullSTTraitsFunc <- stTraitsFunc
-  # 
-  # # and for traits
-  # load(paste0(traitsDir, "bm_traits.RData"))
-  # load(paste0(traitsDir, "st_traits.RData"))
-  # 
-  # # get null bm trait values
-  # nullBMVals <- lapply(1:50, function(x)
-  #   bmVals(x, simListNull, nullBMTraitsFunc))
-  # nullBMMean[i, ] <- unlist(lapply(1:50, function(x) 
-  #   nullBMVals[[x]]$mean))
-  # nullBMVar[i, ] <- unlist(lapply(1:50, function(x) 
-  #   nullBMVals[[x]]$var))
-  # 
-  # # get trait bm trait values
-  # traitBMVals <- lapply(1:50, function(x)
-  #   bmVals(x, simList, bmTraitsFunc))
-  # traitBMMean[i, ] <- unlist(lapply(1:50, function(x) 
-  #   traitBMVals[[x]]$mean))
-  # traitBMVar[i, ] <- unlist(lapply(1:50, function(x) 
-  #   traitBMVals[[x]]$var))
-  # 
-  # # get null st trait values
-  # nullSTVals <- lapply(1:50, function(x)
-  #   stVals(x, simListNull, nullSTTraitsFunc))
-  # nullSTMean[i, ] <- unlist(lapply(1:50, function(x) 
-  #   nullSTVals[[x]]$mean))
-  # nullSTVar[i, ] <- unlist(lapply(1:50, function(x) 
-  #   nullSTVals[[x]]$var))
-  # 
-  # # get trait st trait values
-  # traitSTVals <- lapply(1:50, function(x)
-  #   stVals(x, simList, stTraitsFunc))
-  # traitSTMean[i, ] <- unlist(lapply(1:50, function(x) 
-  #   traitSTVals[[x]]$mean))
-  # traitSTVar[i, ] <- unlist(lapply(1:50, function(x) 
-  #   traitSTVals[[x]]$var))
+  # get function lists for null
+  load(paste0(nullDir, "bm_traits.RData"))
+  load(paste0(nullDir, "st_traits.RData"))
+
+  nullBMTraitsFunc <- bmTraitsFunc
+  nullSTTraitsFunc <- stTraitsFunc
+
+  # and for traits
+  load(paste0(traitsDir, "bm_traits.RData"))
+  load(paste0(traitsDir, "st_traits.RData"))
+
+  # get null bm trait values
+  nullBMVals <- lapply(1:50, function(x)
+    bmVals(x, simListNull, nullBMTraitsFunc))
+  nullBMMean[i, ] <- unlist(lapply(1:50, function(x)
+    nullBMVals[[x]]$mean))
+  nullBMVar[i, ] <- unlist(lapply(1:50, function(x)
+    nullBMVals[[x]]$var))
+
+  # get trait bm trait values
+  traitBMVals <- lapply(1:50, function(x)
+    bmVals(x, simList, bmTraitsFunc))
+  traitBMMean[i, ] <- unlist(lapply(1:50, function(x)
+    traitBMVals[[x]]$mean))
+  traitBMVar[i, ] <- unlist(lapply(1:50, function(x)
+    traitBMVals[[x]]$var))
+
+  # get null st trait values
+  nullSTVals <- lapply(1:50, function(x)
+    stVals(x, simListNull, nullSTTraitsFunc))
+  nullSTMean[i, ] <- unlist(lapply(1:50, function(x)
+    nullSTVals[[x]]$mean))
+
+  # get trait st trait values
+  traitSTVals <- lapply(1:50, function(x)
+    stVals(x, simList, stTraitsFunc))
+  traitSTMean[i, ] <- unlist(lapply(1:50, function(x)
+    traitSTVals[[x]]$mean))
   
   # get samples for null and traits
   nullSampleN[i, ] <- unlist(lapply(1:50, function(x) {
