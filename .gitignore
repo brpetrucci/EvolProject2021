@@ -1,2 +1,4 @@
-.DS_Store
-Simulation/.DS_Store
+*.DS_Store
+Analysis/revbayes_EBD/data
+Analysis/revbayes_FBD/data/
+*history.txt

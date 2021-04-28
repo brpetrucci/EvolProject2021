@@ -14,8 +14,8 @@ library(coda)
 # readr
 library(readr)
 
-# ggplot2
-library(ggplot2)
+# tidyverse
+library(tidyverse)
 
 # reshape2
 library(reshape2)
@@ -41,6 +41,9 @@ ess <- data.frame()
 
 # for each parameter combination
 for (i in 1:nComb) {
+  # print the comb we are at
+  print(i)
+
   # null or trait?
   type <- ifelse(i %% 2 == 0, "traits", "null")
 
@@ -55,19 +58,25 @@ for (i in 1:nComb) {
     # read log file
     log <- suppressMessages(read_tsv(paste0(repDir, baseName, ".log")))
 
-    # burnin value - 1/4 of sample
-    burnin <- ceiling(nrow(log) / 4)
+    # burnin value - 1/2 of sample
+    burnin <- ceiling(nrow(log) / 2)
+
+    # apply burnin
+    log <- log[(burnin + 1):nrow(log), -1:-2]
     
     # make it an mcmc object
-    mcmcRep <- mcmc(data = log, start = burnin)
+    mcmcRep <- mcmc(data = log)
 
     # get the ESS vector (excluding first two)
-    essRep <- effectiveSize(mcmcRep)[-1:-2]
+    essRep <- effectiveSize(mcmcRep)
 
     # append it to the data frame
     ess <- rbind(ess, essRep)
   }
 }
+
+# name the columns
+colnames(ess) <- colnames(log)
 
 # plot ess 
 essPlot <- ggplot(data = melt(ess), aes(x = variable, y = value)) + 
@@ -77,5 +86,5 @@ essPlot <- ggplot(data = melt(ess), aes(x = variable, y = value)) +
 # save it
 ggsave(filename = paste0(baseDir, "ess_plot.png"), plot = essPlot)
 
-# save ess
+# save them
 write_tsv(ess, paste0(baseDir, "ess.tsv"))
