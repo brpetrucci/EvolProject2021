@@ -1,4 +1,6 @@
 *.DS_Store
-Analysis/revbayes_EBD/data
-Analysis/revbayes_FBD/data/
+Analysis/*/data/
+Analysis/*/output/
+Analysis/*/aux/
 *history.txt
+

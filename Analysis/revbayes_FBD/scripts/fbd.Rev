@@ -1,5 +1,5 @@
 #############################################
-##        Episodic Birth-Death model       ##
+##  Episodic Fossilized Birth-Death model  ##
 ## Trait-dependence shifts simulation data ##
 ##             Evolution 2021              ##
 ##       Bruno do Rosario Petrucci         ##
@@ -18,7 +18,7 @@ rep <- ifelse(rep > 50, rep - 50, rep)
 data_dir <- "data/replicates/comb_" + comb + "/" + type + "/"
 
 # get the data
-tree <- readTrees(file = data_dir + "trees/tree_" + rep + ".nex")[1]
+tree <- readTrees(file = data_dir + "trees/fbdTree_" + rep + ".nex")[1]
 
 # list of taxa
 taxa <- tree.taxa()
@@ -32,6 +32,14 @@ monitors = VectorMonitors()
 
 # number of intervals - BG, ME, RE, BG
 n_int <- 4
+
+# serial sampling rate
+psi ~ dnExponential(10)
+
+# moves
+moves.append( mvScale(psi, lambda = 0.01, weight = 2) )
+moves.append( mvScale(psi, lambda = 0.1, weight = 2) )
+moves.append( mvScale(psi, lambda = 1, weight = 2) )
 
 # set rates
 for (i in 1:n_int) {
@@ -50,18 +58,23 @@ for (i in 1:n_int) {
   moves.append( mvScale(mu[i], lambda = 0.01, weight = 2) )
   moves.append( mvScale(mu[i], lambda = 0.1, weight = 2) )
   moves.append( mvScale(mu[i], lambda = 1, weight = 2) )
+
+  # interval sampling rates
+  psi_int[i] := psi
+}
+
+# create taxa without the first
+for (i in 1:(taxa.size() - 1)) {
+  height_taxa[i] = taxa[i + 1]
 }
 
 # set root age - the true root age was always between 45 and 60
-root_age ~ dnUniform(42, 63)
-
-# moves
-moves.append( mvSlide(root_age, delta = 0.01, weight = 2) )
-moves.append( mvSlide(root_age, delta = 0.1, weight = 2) )
-moves.append( mvSlide(root_age, delta = 1, weight = 2) )
+root_age <- tree.getRoot().getAge()
+print(root_age)
+print(tree.rootAge())
 
 # age of the beginning of the mass extinction event (was between 12 and 20)
-me_age ~ dnUniform(root_age - 20, root_age - 10)
+me_age ~ dnUniform(tree.rootAge() - 20, tree.rootAge() - 10)
 
 # moves
 moves.append( mvSlide(me_age, delta = 0.01, weight = 2) )
@@ -85,19 +98,19 @@ moves.append( mvSlide(re_dur, delta = 0.1, weight = 2) )
 moves.append( mvSlide(re_dur, delta = 1, weight = 2) )
 
 # shifts of speciation and extinction rate
-rate_shifts := abs(v(me_age, me_age - me_dur, me_age - me_dur - re_dur))
+rate_shifts := abs(v(me_age - me_dur - re_dur, me_age - me_dur, me_age))
 
 # set up the EBD
-ebd ~ dnEBDP(lambdaRates = lambda, lambdaTimes = rate_shifts,
-             muRates = mu, muTimes = rate_shifts,
+fbd ~ dnFBDP(lambda = lambda, mu = mu, psi = psi_int, 
+             timeline = rate_shifts,
              rootAge = root_age, taxa = taxa)
-ebd.clamp(tree)
+fbd.clamp(tree)
 
 # diversification rate to keep track of
 diversification := lambda - mu
 
 # define the model variable
-mymodel = model(ebd)
+mymodel = model(fbd)
 
 ###
 # set up monitors and run MCMC
@@ -115,8 +128,9 @@ monitors.append( mnScreen(printgen = 1000, root_age, me_age, me_dur, re_dur) )
 mymcmc = mcmc(mymodel, monitors, moves, nruns = 2, combine = "mixed")
 
 # run mcmc
-mymcmc.run(generations = 10000000, tuningInterval = 200, checkpointInterval = 1000,
+mymcmc.run(generations = 10, tuningInterval = 200, checkpointInterval = 1000,
            checkpointFile = out_name + ".state")
 
 # quit
 q()
+
