@@ -20,7 +20,7 @@ hpd <- function(data, alpha = 0.05, ...) {
     # Contraint 2: P(param \in C) = 1-alpha (use integrate -- more stable than
     # ppost) f2 <- ppost(boundary[1],...) - ppost(boundary[2]) Important: the dpost
     # function has to be vectorized
-    f2 <- integrate(fdens, lower = boundary[1], upper = boundary[2], ...)$val - 
+    f2 <- integrate(fdens, lower = boundary[1], upper = boundary[2], subdivisions = 2000, ...)$val - 
       (1 - alpha)
     
     # Convert multivariate root finding to minimization problem (this can be
