@@ -76,24 +76,23 @@ for (i in 1:nComb) {
     hpds <- HPDinterval(mcmc(log))
 
     # for each column in the log
-    for (k in 2:ncol(log)) {
+    for (k in 1:ncol(log)) {
       # get the data
       sample <- log[, k]
-      
+
       # append the mean
       summ <- c(summ, mean(sample), sd(sample))
 
       # append the low, median, and high HPD
-      summ <- c(summ, hpds[k - 1, 1], median(sample), hpds[k - 1, 2])
+      summ <- c(summ, hpds[k, 1], median(sample), hpds[k, 2])
     }
-
     # append to data frame
     summary <- rbind(summary, summ)
   }
 }
 
 # names for parameter columns
-parColNames <- unlist(lapply(2:ncol(log), function(x)
+parColNames <- unlist(lapply(1:ncol(log), function(x)
   paste0(colnames(log)[x], c("_mean", "_stdev", "_low95", "_median", "_high95"))))
 
 # column names
