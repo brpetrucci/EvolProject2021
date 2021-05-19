@@ -19,10 +19,6 @@ library(tidyverse)
 # reshape2
 library(reshape2)
 
-# source hpd funtion
-# did not want to have to download the whole package
-source("/work/LAS/phylo-lab/petrucci/EvolProject2021/Analysis/hpd.R")
-
 ###
 # get command line arguments
 args <- commandArgs(trailingOnly = TRUE)[-1]
@@ -77,7 +73,7 @@ for (i in 1:nComb) {
     summ <- c(nCombCur, type, j)
 
     # get HPD intervals
-    hpds <- suppressWarnings(hpd(log))
+    hpds <- HPDinterval(mcmc(log))
 
     # for each column in the log
     for (k in 2:ncol(log)) {
@@ -85,7 +81,7 @@ for (i in 1:nComb) {
       sample <- log[, k]
       
       # append the mean
-      summ <- c(summ, mean(sample))
+      summ <- c(summ, mean(sample), sd(sample))
 
       # append the low, median, and high HPD
       summ <- c(summ, hpds[k - 1, 1], median(sample), hpds[k - 1, 2])
@@ -98,7 +94,7 @@ for (i in 1:nComb) {
 
 # names for parameter columns
 parColNames <- unlist(lapply(2:ncol(log), function(x)
-  paste0(colnames(log)[x], c("_mean", "_low95", "_median", "_high95"))))
+  paste0(colnames(log)[x], c("_mean", "_stdev", "_low95", "_median", "_high95"))))
 
 # column names
 colnames(summary) <- c("comb", "type", "rep", parColNames)
