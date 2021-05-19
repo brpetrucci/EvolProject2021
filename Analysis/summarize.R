@@ -61,10 +61,10 @@ for (i in 1:nComb) {
     log <- suppressMessages(read_tsv(paste0(repDir, baseName, ".log")))
 
     # burnin value - 1/2 of sample
-    burnin <- ceiling(nrow(log) / 2)
+    burnin <- ceiling(nrow(log) / 4)
 
     # apply burnin
-    log <- log[(burnin + 1):nrow(log), -2:-5]
+    log <- log[(burnin + 1):nrow(log), -1:-5]
 
     # make log a data frame
     log <- as.data.frame(log)
