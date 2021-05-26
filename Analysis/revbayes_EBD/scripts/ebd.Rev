@@ -27,6 +27,9 @@ taxa <- tree.taxa()
 moves = VectorMoves()
 monitors = VectorMonitors()
 
+# true values of rate shifts
+true_times <- readMatrix("../true_times.tsv", "\t")[comb + 1]
+
 ###
 # define model parameters and moves
 
@@ -53,7 +56,9 @@ for (i in 1:n_int) {
 }
 
 # set root age - the true root age was always between 45 and 60
-root_age ~ dnUniform(42, 63)
+a <- abs(true_times[4] - 0.01)
+b <- abs(true_times[4] + 0.01)
+root_age ~ dnUniform(a, b)
 
 # moves
 moves.append( mvSlide(root_age, delta = 0.01, weight = 2) )
@@ -61,31 +66,34 @@ moves.append( mvSlide(root_age, delta = 0.1, weight = 2) )
 moves.append( mvSlide(root_age, delta = 1, weight = 2) )
 
 # age of the beginning of the mass extinction event (was between 12 and 20)
-me_age ~ dnUniform(root_age - 20, root_age - 10)
+#me_age ~ dnUniform(root_age - 20, root_age - 10)
+me_start <- root_age - true_times[1]
 
 # moves
-moves.append( mvSlide(me_age, delta = 0.01, weight = 2) )
-moves.append( mvSlide(me_age, delta = 0.1, weight = 2) )
-moves.append( mvSlide(me_age, delta = 1, weight = 2) ) 
+#moves.append( mvSlide(me_age, delta = 0.01, weight = 2) )
+#moves.append( mvSlide(me_age, delta = 0.1, weight = 2) )
+#moves.append( mvSlide(me_age, delta = 1, weight = 2) ) 
 
 # duration of ME (real was 1 to 10)
-me_dur ~ dnUniform(0, 11)
+#me_dur ~ dnUniform(0, 11)
+re_start <- root_age - true_times[2]
 
 # moves
-moves.append( mvSlide(me_dur, delta = 0.01, weight = 2) )
-moves.append( mvSlide(me_dur, delta = 0.1, weight = 2) )
-moves.append( mvSlide(me_dur, delta = 1, weight = 2) )
+#moves.append( mvSlide(me_dur, delta = 0.01, weight = 2) )
+#moves.append( mvSlide(me_dur, delta = 0.1, weight = 2) )
+#moves.append( mvSlide(me_dur, delta = 1, weight = 2) )
 
 # duration of recovery (real was 1 to 10)
-re_dur ~ dnUniform(0, 11)
+#re_dur ~ dnUniform(0, 11)
+re_end <- root_age - true_times[3]
 
 # moves
-moves.append( mvSlide(re_dur, delta = 0.01, weight = 2) )
-moves.append( mvSlide(re_dur, delta = 0.1, weight = 2) )
-moves.append( mvSlide(re_dur, delta = 1, weight = 2) )
+#moves.append( mvSlide(re_dur, delta = 0.01, weight = 2) )
+#moves.append( mvSlide(re_dur, delta = 0.1, weight = 2) )
+#moves.append( mvSlide(re_dur, delta = 1, weight = 2) )
 
 # shifts of speciation and extinction rate
-rate_shifts := abs(v(me_age, me_age - me_dur, me_age - me_dur - re_dur))
+rate_shifts := abs(v(me_start, re_start, re_end))  #me_age, me_age - me_dur, me_age - me_dur - re_dur))
 
 # set up the EBD
 ebd ~ dnEBDP(lambdaRates = lambda, lambdaTimes = rate_shifts,
@@ -109,7 +117,7 @@ out_name = "output/" + type + "_comb_" + comb + "/rep_" + rep + "/ebd"
 monitors.append( mnModel(filename = out_name + ".log", printgen = 1000) )
 
 # screen monitor
-monitors.append( mnScreen(printgen = 1000, root_age, me_age, me_dur, re_dur) )
+monitors.append( mnScreen(printgen = 1000) )
 
 # create mcmc object
 mymcmc = mcmc(mymodel, monitors, moves, nruns = 2, combine = "mixed")
