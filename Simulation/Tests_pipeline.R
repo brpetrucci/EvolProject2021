@@ -1,3 +1,5 @@
+tMaxes <- c()
+meStarts <-  c()
 for (i in 1:nrow(key)) {
   comb <- i
   
@@ -104,6 +106,8 @@ for (i in 1:nrow(key)) {
     integrate(Vectorize(function(x) lambda(x, c(0, expected.trait(stQ01, stQ10, x))) * expNt1(x)), 0, t, 
               stop.on.error = FALSE)$value + 1
   }
+  
+  tMaxes <- c(tMaxes, tMax)
   
   print(paste0(tMax, " ", reStart + reDur, ", Diff = ", tMax - (reStart + reDur)))
   print(paste0("Comb: ", comb))
