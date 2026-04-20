@@ -1,2 +1,6 @@
-.DS_Store
-Simulation/.DS_Store
+*.DS_Store
+Analysis/*/data/
+Analysis/*/output/
+Analysis/*/aux/
+*history.txt
+
